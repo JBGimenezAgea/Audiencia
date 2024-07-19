@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selector de Categorías</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            height: 100vh;
+        }
+        
+        .container {
+            display: flex;
+            width: 100%;
+        }
+
+        .sidebar {
+            width: 25%;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .main {
+            width: 75%;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        select, input[type="text"], button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #fff;
+            cursor: pointer;
+        }
+
+        button {
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            background-color: #fff;
+            margin: 10px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+        }
+
+        li:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .info {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .info-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .info-content {
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <h1>Filtrar por Audiencia</h1>
+            <select id="categorySelector" onchange="filterItems()">
+                <option value="all">Todas las Audiencias</option>
+                <option value="colectivos">Demográficas</option>
+                <option value="subtes">Geolocalizadas</option>
+                <option value="trenes">Negocios/Finanzas</option>
+            </select>
+            <button onclick="resetFilters()">Eliminar Filtros</button>
+            <input type="text" id="searchInput" placeholder="Buscar..." onkeyup="filterItems()">
+            <button onclick="clearSearch()">Borrar</button>
+        </div>
+        <div class="main">
+            <ul id="itemList">
+                <li data-category="colectivos" data-info="Volumen: 10000" onclick="showInfo(this)">Permutive | Clarin | Audience Taxonomy | Demographic | Age Range (by login) | 18-20</li>
+                <li data-category="subtes" data-info="Volumen: 5000" onclick="showInfo(this)">Permutive - Localidad - Martinez - Buenos Aires - Clarin</li>
+                <li data-category="trenes" data-info="Volumen: 15000" onclick="showInfo(this)">Permutive | Clarin | Audience Taxonomy | Interest | Business and Finance</li>
+                <li data-category="colectivos" data-info="Volumen: 12000" onclick="showInfo(this)">Permutive | Clarin | Audience Taxonomy | Demographic | Age Range (by login) | 21-24</li>
+                <li data-category="subtes" data-info="Volumen: 7000" onclick="showInfo(this)">Permutive - Localidad - Quilmes Oeste - Buenos Aires - Clarin</li>
+                <li data-category="trenes" data-info="Volumen: 20000" onclick="showInfo(this)">Permutive | Clarin | Audience Taxonomy | Interest | Business and Finance | Industries</li>
+            </ul>
+            <div id="info" class="info" style="display:none;">
+                <div class="info-title" id="infoTitle"></div>
+                <div class="info-content" id="infoContent"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function filterItems() {
+            const selector = document.getElementById('categorySelector');
+            const searchInput = document.getElementById('searchInput');
+            const selectedCategory = selector.value.toLowerCase();
+            const searchTerm = searchInput.value.toLowerCase();
+            const items = document.querySelectorAll('#itemList li');
+
+            items.forEach(item => {
+                const itemCategory = item.getAttribute('data-category').toLowerCase();
+                const itemText = item.textContent.toLowerCase();
+
+                if ((selectedCategory === 'all' || itemCategory === selectedCategory) && itemText.includes(searchTerm)) {
+                    item.style.display = '';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        function clearSearch() {
+            document.getElementById('searchInput').value = '';
+            filterItems();
+        }
+
+        function resetFilters() {
+            document.getElementById('categorySelector').value = 'all';
+            document.getElementById('searchInput').value = '';
+            filterItems();
+        }
+
+        function showInfo(item) {
+            const infoTitle = document.getElementById('infoTitle');
+            const infoContent = document.getElementById('infoContent');
+            const info = document.getElementById('info');
+
+            infoTitle.textContent = `Audiencia seleccionada: ${item.textContent}`;
+            infoContent.textContent = item.getAttribute('data-info');
+            info.style.display = 'block';
+        }
+    </script>
+</body>
+</html>
