@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Selector de Categorías</title>
+    <title>Selector de Audiencias</title>
     <style>
-        body {
+       body {
             font-family: 'Roboto', sans-serif;
             background-color: #121212;
             margin: 0;
@@ -15,13 +15,12 @@
             height: 100vh;
             color: #e0e0e0;
         }
-        
         .container {
             display: flex;
             flex: 1;
             width: 100%;
+            position: relative;
         }
-
         .sidebar {
             width: 30%;
             background-color: #1e1e1e;
@@ -31,33 +30,29 @@
             flex-direction: column;
             gap: 15px;
         }
-
         .sidebar h1 {
             font-size: 1.5em;
             margin-bottom: 10px;
             color: #ffffff;
         }
-
         .search-container {
             position: relative;
             margin-bottom: 20px;
         }
-
         .search-container input[type="text"] {
             width: 100%;
             max-width: 300px;
             padding: 10px;
-            padding-right: 35px; /* Ajustar espacio para el ícono */
+            padding-right: 30px;
             font-size: 16px;
             border: 1px solid #333;
             border-radius: 5px;
             background-color: #2a2a2a;
             color: #e0e0e0;
         }
-
         .search-container .clear-button {
             position: absolute;
-            right: 70px;
+            right: 10px;
             top: 50%;
             transform: translateY(-50%);
             color: #6200ea;
@@ -65,47 +60,55 @@
             font-size: 18px;
             transition: color 0.3s;
         }
-
         .search-container .clear-button:hover {
             color: #3700b3;
         }
-
-        .category {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .category div {
+        .category select {
+            width: 100%;
+            padding: 15px;
             background-color: #333;
             color: #e0e0e0;
-            padding: 15px;
             border-radius: 8px;
-            text-align: center;
-            cursor: pointer;
+            border: none;
             font-weight: bold;
             transition: background-color 0.3s, transform 0.3s;
+            appearance: none;
+            cursor: pointer;
         }
-
-        .category div:hover {
+        .category select:hover {
             background-color: #555;
             transform: scale(1.05);
         }
-
+        .clear-filters-btn {
+            background-color: #ff0000;
+            color: #ffffff;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            margin-top: 10px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .clear-filters-btn:hover {
+            background-color: #cc0000;
+            transform: scale(1.05);
+        }
         .main {
             width: 70%;
             padding: 20px;
             position: relative;
             background-color: #1e1e1e;
             overflow-y: auto;
+            display: flex;
+            flex-direction: column;
         }
-
         ul {
             list-style: none;
             padding: 0;
             margin: 0;
         }
-
         li {
             background-color: #333;
             margin: 10px 0;
@@ -115,132 +118,382 @@
             transition: background-color 0.3s, transform 0.3s;
             cursor: pointer;
         }
-
         li:hover {
             background-color: #444;
             transform: scale(1.02);
         }
-
         .info {
             margin-top: 20px;
-            padding: 20px;
+            padding: 15px;
             background-color: #2a2a2a;
             border: 1px solid #444;
             border-radius: 8px;
-            width: 100%;
-            max-width: 600px;
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
+            display: none;
         }
-
         .info-title {
             font-weight: bold;
             margin-bottom: 10px;
             color: #ffffff;
         }
-
         .info-content {
             color: #b0b0b0;
+        }
+        .add-button {
+            background-color: #00c853;
+            color: #ffffff;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+            font-size: 16px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .info button {
+    background-color: #0033A0; 
+    color: #ffffff; /* Color del texto en blanco */
+    border: none; /* Sin borde */
+    padding: 8px 18px; /* Espaciado interno del botón */
+    border-radius: 8px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s; /* Efectos de transición */
+    font-size: 12px; /* Tamaño de fuente */
+    font-weight: bold; /* Negrita para el texto */
+    display: flex; /* Usar flexbox para centrar el texto */
+    align-items: right; /* Alinea verticalmente el texto */
+    justify-content: center; 
+}
+
+.info button:hover {
+    background-color: #1e1e1e; /* Verde más oscuro al pasar el mouse */
+    transform: scale(1.05); /* Efecto de aumento al pasar el mouse */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Agrega sombra */
+}
+
+.info button:focus {
+    outline: none; /* Elimina el borde de enfoque */
+    box-shadow: 0 0 0 3px rgba(0, 150, 136, 0.5); /* Agrega una sombra de enfoque */
+}
+
+        .add-button:hover {
+            background-color: #009624;
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        .add-button:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(0, 150, 136, 0.5);
+        }
+        .recommendations {
+            padding: 15px;
+            background-color: #2a2a2a;
+            border: 1px solid #444;
+            border-radius: 8px;
+            max-width: 250px;
+            display: none;
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+        }
+        .recommendations h2 {
+            color: #ffffff;
+            margin-bottom: 10px;
+        }
+        .recommendations ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .recommendations li {
+            background-color: #333;
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            color: #e0e0e0;
+        }
+        .recommendations li:hover {
+            background-color: #444;
+        }
+        .selected-items {
+            width: 300px;
+            background-color: #1e1e1e;
+            padding: 20px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+            border-radius: 8px;
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            max-height: 70vh;
+            overflow-y: auto;
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+        }
+        .selected-items.open {
+            transform: translateX(0);
+        }
+        .selected-items .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #ff0000;
+            color: #ffffff;
+            border: none;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .selected-items h2 {
+            color: #ffffff;
+            margin-bottom: 10px;
+        }
+        .selected-items ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .selected-items li {
+            background-color: #333;
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #e0e0e0;
+        }
+        .selected-items li button {
+            background: none;
+            border: none;
+            color: #ff0000;
+            cursor: pointer;
+        }
+        .selected-items li button:hover {
+            color: #cc0000;
+        }
+        .open-panel-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: #6200ea;
+            color: #ffffff;
+            border: none;
+            border-radius: 8px;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .open-panel-btn:hover {
+            background-color: #3700b3;
+        }
+        .notification {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #333;
+            color: #e0e0e0;
+            padding: 10px 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            transition: opacity 0.3s, bottom 0.3s;
+        }
+        .notification.show {
+            opacity: 1;
+            bottom: 40px;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="sidebar">
-            <h1>Filtrar por Audiencia</h1>
+            <h1>Audiencias por categoría</h1>
             <div class="search-container">
                 <input type="text" id="searchInput" placeholder="Buscar..." onkeyup="filterItems()">
                 <span class="clear-button" onclick="clearSearch()">✕</span>
             </div>
             <div class="category">
-                <div onclick="showCategory('colectivos')">Demográficas</div>
-                <div onclick="showCategory('subtes')">Geolocalizadas</div>
-                <div onclick="showCategory('trenes')">Negocios/Finanzas</div>
+                <select id="categorySelect" onchange="filterByCategory()">
+                    <option value="all">Mostrar Todos</option>
+                    <option value="Demographic">Demográficas</option>
+                    <option value="Demographic-Age">- Edad</option>
+                    <option value="Demographic-Gender">- Sexo</option>
+                    <option value="Salud">Salud y Bienestar</option>
+                    <option value="Geolocalizacion">Geolocalizadas</option>
+                    <option value="Negocios">Negocios</option>
+                    <option value="Finanzas">Finanzas</option>
+                    <option value="Entretenimiento">Entretenimiento y Cultura</option>
+                    <option value="Educacion">Educación y Conocimientos</option>
+                    <option value="Estilos">Estilo de Vida</option>
+                    <option value="Noticias">Noticias y Actualidad</option>
+                    <option value="deportes">Deportes</option>
+                    <option value="Viajes">Viajes</option>
+                    <option value="Automoviles">Automoviles</option>
+                    <option value="Tecnología">Tecnología</option>
+                    <option value="Familia">Familia</option>
+                    <option value="Food">Food and Drinks</option>
+                    <option value="Moda">Estilo y Moda</option>
+                    <option value="Arq">Arq, decoración y construcción</option>
+                    <option value="Consumo">Consumo y Retail</option>
+                    <option value="Agro">Agro</option>
+                    <option value="Orden">Orden público y seguridad</option>
+                    <option value="Empleo">Empleo</option>
+                    <option value="Tipo de lector">Tipo de lector</option>
+                </select>
+                <button class="clear-filters-btn" onclick="clearFilters()">Eliminar Filtros</button>
             </div>
-            <button onclick="resetFilters()">Eliminar Filtros</button>
-        </div>
-        <div class="main">
+            </div>
+            <div class="main">
             <ul id="itemList">
-                <li data-category="colectivos" data-info="Volumen: 10000" onclick="showInfo(this)">Permutive | Clarin | Audience Taxonomy | Demographic | Age Range (by login) | 18-20</li>
-                <li data-category="subtes" data-info="Volumen: 5000" onclick="showInfo(this)">Permutive - Localidad - Martinez - Buenos Aires - Clarin</li>
-                <li data-category="trenes" data-info="Volumen: 15000" onclick="showInfo(this)">Permutive | Clarin | Audience Taxonomy | Interest | Business and Finance</li>
-                <li data-category="colectivos" data-info="Volumen: 12000" onclick="showInfo(this)">Permutive | Clarin | Audience Taxonomy | Demographic | Age Range (by login) | 21-24</li>
-                <li data-category="subtes" data-info="Volumen: 7000" onclick="showInfo(this)">Permutive - Localidad - Quilmes Oeste - Buenos Aires - Clarin</li>
-                <li data-category="trenes" data-info="Volumen: 20000" onclick="showInfo(this)">Permutive | Clarin | Audience Taxonomy | Interest | Business and Finance | Industries</li>
+                <li data-category="Demographic-Age" data-info="Volumen: 10000" onclick="selectItem(this)">Permutive | Clarin | Audience Taxonomy | Demographic | Age Range (by login) | 18-20</li>
+                <li data-category="Demographic-Gender" data-info="Volumen: 8000" onclick="selectItem(this)">Permutive | Clarin | Audience Taxonomy | Demographic | Gender | Female</li>
+                <li data-category="Geolocalizacion" data-info="Volumen: 5000" onclick="selectItem(this)">Permutive - Localidad - Martinez - Buenos Aires - Clarin</li>
+                <li data-category="Negocios" data-info="Volumen: 15000" onclick="selectItem(this)">Permutive | Clarin | Audience Taxonomy | Interest | Business and Finance</li>
+                <li data-category="Demographic-Age" data-info="Volumen: 12000" onclick="selectItem(this)">Permutive | Clarin | Audience Taxonomy | Demographic | Age Range (by login) | 21-24</li>
+                <li data-category="Geolocalizacion" data-info="Volumen: 7000" onclick="selectItem(this)">Permutive - Localidad - Quilmes Oeste - Buenos Aires - Clarin</li>
+                <li data-category="Negocios" data-info="Volumen: 20000" onclick="selectItem(this)">Permutive | Clarin | Audience Taxonomy | Interest | Business and Finance | Industries</li>
             </ul>
-            <div id="info" class="info" style="display:none;">
+            
+            <div class="info" id="info">
                 <div class="info-title" id="infoTitle"></div>
                 <div class="info-content" id="infoContent"></div>
+                <button onclick="addToSelectedItems()">Agregar al Carrito</button>
+            </div>
+            <div class="recommendations" id="recommendations">
+                <h2>Recomendaciones</h2>
+                <ul id="recommendationList">
+                    <!-- Recomendaciones generadas dinámicamente -->
+                </ul>
             </div>
         </div>
     </div>
-
+    <div class="selected-items" id="selectedItems">
+        <button class="close-btn" onclick="toggleSelectedItems()">✕</button>
+        <h2>Audiencias Seleccionadas</h2>
+        <ul id="selectedItemList">
+            <!-- Elementos seleccionados generados dinámicamente -->
+        </ul>
+    </div>
+    <button class="open-panel-btn" id="openPanelBtn" onclick="toggleSelectedItems()">Audiencias Seleccionadas</button>
+    <div class="notification" id="notification">¡Audiencia agregada al carrito!</div>
     <script>
-        function showCategory(category) {
-    const items = document.querySelectorAll('#itemList li');
-    
-    // Mostrar todos los elementos si la categoría es 'all'
-    if (category === 'all') {
-        items.forEach(item => {
-            item.style.display = '';
-        });
-    } else {
-        // Mostrar solo los elementos que coinciden con la categoría seleccionada
-        items.forEach(item => {
-            if (item.getAttribute('data-category') === category) {
-                item.style.display = '';
+        let selectedItems = [];
+        let recommendations = {
+            "Audiencia 1": ["Recomendación 1A", "Recomendación 1B"],
+            "Audiencia 2": ["Recomendación 2A", "Recomendación 2B"],
+            // Añadir más recomendaciones según sea necesario
+        };
+        function selectItem(element) {
+            let title = element.innerText;
+            let info = element.getAttribute("data-info");
+            let infoElement = document.getElementById("info");
+            document.getElementById("infoTitle").innerText = title;
+            document.getElementById("infoContent").innerText = info;
+            infoElement.style.display = "block";
+            if (recommendations[title]) {
+                let recommendationList = document.getElementById("recommendationList");
+                recommendationList.innerHTML = "";
+                recommendations[title].forEach(rec => {
+                    let li = document.createElement("li");
+                    li.innerText = rec;
+                    li.onclick = () => addToSelectedItems(rec);
+                    recommendationList.appendChild(li);
+                });
+                document.getElementById("recommendations").style.display = "block";
             } else {
-                item.style.display = 'none';
+                document.getElementById("recommendations").style.display = "none";
             }
-        });
-    }
-
-    // Limpiar la búsqueda para asegurar que solo se muestren los elementos de la categoría seleccionada
-    clearSearch();
-}
-
-function filterItems() {
-    const searchInput = document.getElementById('searchInput');
-    const searchTerm = searchInput.value.toLowerCase();
-    const items = document.querySelectorAll('#itemList li');
-
-    items.forEach(item => {
-        const itemText = item.textContent.toLowerCase();
-        // Mostrar solo los elementos que contienen el término de búsqueda y están visibles
-        if (itemText.includes(searchTerm) && item.style.display !== 'none') {
-            item.style.display = '';
-        } else {
-            item.style.display = 'none';
         }
-    });
-}
-
-function clearSearch() {
-    const searchInput = document.getElementById('searchInput');
-    searchInput.value = '';
-    // Mostrar todos los elementos después de limpiar la búsqueda
-    filterItems(); 
-}
-
-function resetFilters() {
-    document.querySelectorAll('#itemList li').forEach(item => {
-        item.style.display = '';
-    });
-    clearSearch();
-}
-
-function showInfo(item) {
-    const infoTitle = document.getElementById('infoTitle');
-    const infoContent = document.getElementById('infoContent');
-    const info = document.getElementById('info');
-
-    infoTitle.textContent = `Audiencia seleccionada: ${item.textContent}`;
-    infoContent.textContent = item.getAttribute('data-info');
-    info.style.display = 'block';
-}
-
+        function addToSelectedItems(itemName) {
+            let infoElement = document.getElementById("info");
+            let title = itemName || document.getElementById("infoTitle").innerText;
+            if (!selectedItems.includes(title)) {
+                selectedItems.push(title);
+                let selectedItemList = document.getElementById("selectedItemList");
+                let li = document.createElement("li");
+                li.innerText = title;
+                let removeButton = document.createElement("button");
+                removeButton.innerText = "Eliminar";
+                removeButton.onclick = () => removeSelectedItem(title);
+                li.appendChild(removeButton);
+                selectedItemList.appendChild(li);
+                showNotification("¡Audiencia agregada al carrito!");
+            }
+            infoElement.style.display = "none";
+            document.getElementById("recommendations").style.display = "none";
+        }
+        function removeSelectedItem(itemName) {
+            selectedItems = selectedItems.filter(item => item !== itemName);
+            let selectedItemList = document.getElementById("selectedItemList");
+            let items = selectedItemList.getElementsByTagName("li");
+            for (let i = 0; i < items.length; i++) {
+                if (items[i].innerText.includes(itemName)) {
+                    selectedItemList.removeChild(items[i]);
+                    break;
+                }
+            }
+            showNotification("¡Audiencia eliminada del carrito!");
+        }
+        function filterItems() {
+            let searchInput = document.getElementById("searchInput").value.toLowerCase();
+            let items = document.getElementById("itemList").getElementsByTagName("li");
+            for (let i = 0; i < items.length; i++) {
+                let item = items[i];
+                if (item.innerText.toLowerCase().includes(searchInput)) {
+                    item.style.display = "block";
+                } else {
+                    item.style.display = "none";
+                }
+            }
+        }
+        function filterByCategory() {
+            let categorySelect = document.getElementById("categorySelect").value;
+            let items = document.getElementById("itemList").getElementsByTagName("li");
+            for (let i = 0; i < items.length; i++) {
+                let item = items[i];
+                if (categorySelect === "all" || item.getAttribute("data-category") === categorySelect) {
+                    item.style.display = "block";
+                } else {
+                    item.style.display = "none";
+                }
+            }
+        }
+        function clearSearch() {
+            document.getElementById("searchInput").value = "";
+            filterItems();
+        }
+        function toggleSelectedItems() {
+            let selectedItemsPanel = document.getElementById("selectedItems");
+            selectedItemsPanel.classList.toggle("open");
+        }
+        function showNotification(message) {
+            let notification = document.getElementById("notification");
+            notification.innerText = message;
+            notification.classList.add("show");
+            setTimeout(() => {
+                notification.classList.remove("show");
+            }, 3000);
+        }
     </script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
