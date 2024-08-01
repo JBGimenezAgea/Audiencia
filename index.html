@@ -16,6 +16,7 @@
     color: #e0e0e0;
 }
 
+
 .container {
     display: flex;
     flex: 1;
@@ -38,10 +39,67 @@
 
 
 .sidebar h1 {
-    font-size: 1.5em;
-    margin-bottom: 15px;
+    font-size: 2em;
+    margin-bottom: 20px;
     color: #ffffff;
+    font-family: 'Helvetica Neue', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+    text-shadow: 2px 2px 4px pink;
 }
+
+.sidebar h1::before,
+.sidebar h1::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    height: 3px;
+    width: 100%;
+    background: linear-gradient(70deg, blue, pink);
+    animation: animateLine 2s infinite;
+}
+
+.sidebar h1::before {
+    left: -100%;
+}
+
+.sidebar h1::after {
+    right: -100%;
+}
+
+@keyframes animateLine {
+    0% {
+        left: -100%;
+        right: 100%;
+    }
+    50% {
+        left: 100%;
+        right: -100%;
+    }
+    100% {
+        left: -100%;
+        right: 100%;
+    }
+}
+
+.sidebar h1 span {
+    display: inline-block;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
 
 
 .search-container {
@@ -104,20 +162,21 @@
 
 
 .clear-filters-btn {
-    background-color: #ff0000;
+    background-color: #2b2c90;
     color: #ffffff;
     border: none;
-    padding: 10px;
+    padding: 5px;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s, transform 0.3s;
     margin-top: 10px;
     font-size: 16px;
     font-weight: bold;
+    width: 50%;
 }
 
 .clear-filters-btn:hover {
-    background-color: #cc0000;
+    background-color: #3738bc;
     transform: scale(1.05);
 }
 
@@ -157,12 +216,18 @@ li:hover {
 
 
 .info {
-    margin-top: 20px;
+    position: fixed;
+    top: 400px; 
+    left: 20px; 
+    max-width: 400px; 
     padding: 15px;
     background-color: #2a2a2a;
     border: 1px solid #444;
     border-radius: 8px;
-    display: none;
+    display: none; 
+    z-index: 1000; 
+    overflow: hidden; 
+    box-sizing: border-box; 
 }
 
 .info-title {
@@ -201,7 +266,6 @@ li:hover {
     box-shadow: 0 0 0 3px rgba(0, 150, 136, 0.5);
 }
 
-
 .add-button {
     background-color: #00c853;
     color: #ffffff;
@@ -230,16 +294,20 @@ li:hover {
 
 
 .recommendations {
+    position: fixed;
+    top: 550px;
+    left: 20px; 
+    max-width: 400px; 
+    max-height: 400px;
     padding: 15px;
     background-color: #2a2a2a;
     border: 1px solid #444;
     border-radius: 8px;
-    max-width: 250px;
-    display: none;
-    position: relative;
-    bottom: -10px; /* Ajusta la posición desde el fondo */
-    left: 0px; /* Ajusta la posición desde el lado izquierdo */
-    z-index: 100;
+    display: none; 
+    z-index: 1000; 
+    overflow-y: auto; 
+    overflow-x: hidden; 
+    box-sizing: border-box; 
 }
 
 .recommendations h2 {
@@ -570,22 +638,24 @@ li:hover {
     </style>
 </head>
 <body>
+    <div class="background"></div>
     <div class="container">
         <div class="sidebar">
-            <h1>Audiencias por categoría</h1>
+            <h1><span>AUDIENCIAS</span></h1>
             <div class="search-container">
                 <input type="text" id="searchInput" placeholder="Buscar..." onkeyup="filterItems()">
                 <span class="clear-button" onclick="clearSearch()">✕</span>
             </div>
+            
             <div class="category">
                 <select id="categorySelect" onchange="filterByCategoryAndSubcategory()">
-                    <option value="all">Por rubro</option>
+                    <option value="all">Por categoría</option>
                     <option value="Demographic">Demográficas</option>
                     <option value="Salud">Salud y Bienestar</option>
                     <option value="Geolocalizacion">Geolocalizadas</option>
                     <option value="Negocios">Negocios</option>
                     <option value="Finanzas">Finanzas</option>
-                    <option value="Entretenimiento">Entretenimiento y Cultura</option>
+                    <option value="Entretenimiento-Cultura">Entretenimiento y Cultura</option>
                     <option value="Educacion">Educación y Conocimientos</option>
                     <option value="Estilos">Estilo de Vida</option>
                     <option value="Noticias">Noticias y Actualidad</option>
@@ -595,7 +665,7 @@ li:hover {
                     <option value="Tecnología">Tecnología</option>
                     <option value="Familia">Familia</option>
                     <option value="Food">Food and Drinks</option>
-                    <option value="Moda">Estilo y Moda</option>
+                    <option value="Estilo-Moda">Estilo y Moda</option>
                     <option value="Arq">Arq, decoración y construcción</option>
                     <option value="Consumo">Consumo y Retail</option>
                     <option value="Agro">Agro</option>
@@ -604,11 +674,29 @@ li:hover {
                     <option value="Tipo de lector">Tipo de lector</option>
                 </select>
                 <select id="subcategorySelect" onchange="filterByCategoryAndSubcategory()">
-                    <option value="all">Por categoría</option>
-                    <option value="Demographic-Age">Edad</option>
-                    <option value="Demographic-Gender">Sexo</option>
-                    <option value="Business-Finance">Finanzas</option>
-                    <option value="Business-Industries">Industrias</option>
+                    <option value="all">Por rubro</option>
+                    <option value="Tec">Tecnología y electrónica</option>
+                    <option value="Salud">Salud y Bienestar</option>
+                    <option value="Educ-form">Educación y formación</option>
+                    <option value="Business-Finance">Negocios y finanzas</option>
+                    <option value="Viajes-turismo">Viajes y turismo</option>
+                    <option value="Belleza">Belleza</option>
+                    <option value="Moda">Moda</option>
+                    <option value="Alimentacion-bebidas">Alimentacion y bebidas</option>
+                    <option value="Hogar-jardin">Hogar y jardin</option>
+                    <option value="Entretenimiento">Entretenimiento</option>
+                    <option value="Automotriz">Automotriz</option>
+                    <option value="Deportes-aficiones">Deportes y aficiones</option>
+                    <option value="Mercado-inmobiliario">Mercado inmobiliario</option>
+                    <option value="Eventos-actividades">Eventos y actividades</option>
+                    <option value="Agro">Agro</option>
+                    <option value="Supermercados">Supermercados</option>
+                    <option value="Construcción-Decoración">Construcción y Decoración</option>
+                    <option value="Medios de comunicación">Medios de comunicación</option>
+                    <option value="Telecomunicaciones">Telecomunicaciones</option>
+
+
+
                 </select>
                 <button class="clear-filters-btn" onclick="clearFilters()">Eliminar Filtros</button>
                 <div class="recommendations" id="recommendations">
@@ -627,6 +715,26 @@ li:hover {
                 <li data-category="Demographic" data-subcategory="Demographic-Age" data-info="Volumen: 12000" onclick="selectItem(this)">Permutive | Clarin | Audience Taxonomy | Demographic | Age Range (by login) | 21-24</li>
                 <li data-category="Geolocalizacion" data-subcategory="" data-info="Volumen: 7000" onclick="selectItem(this)">Permutive - Localidad - Quilmes Oeste - Buenos Aires - Clarin</li>
                 <li data-category="Negocios" data-subcategory="Business-Industries" data-info="Volumen: 20000" onclick="selectItem(this)">Permutive | Clarin | Audience Taxonomy | Interest | Business and Finance | Industries</li>
+                <li  data-subcategory="Tec" data-info="Volumen: 1792681" onclick="selectItem(this)">Permutive | Clarin | Audience Taxonomy | Interest | Technology & Computing</li>
+                <li  data-subcategory="Salud" data-info="Volumen: 9630880" onclick="selectItem(this)">Permutive | Clarin | Audience Taxonomy | Interest | Health and Medical Services</li>
+                <li  data-subcategory="Educ-form" data-info="Volumen: 4765987 " onclick="selectItem(this)">Permutive | Clarin | Audience Taxonomy | Interest | Education</li>
+                <li  data-subcategory="Business-Finance" data-info="Volumen: 14336712" onclick="selectItem(this)">Permutive | Clarin | Audience Taxonomy | Interest | Business and Finance</li>
+                <li  data-subcategory="Viajes-turismo" data-info="Volumen: 4983738" onclick="selectItem(this)">Permutive | Clarin | Audience Taxonomy | Interest | Travel</li>
+                <li  data-subcategory="Belleza" data-info="Volumen: 7876904" onclick="selectItem(this)">Permutive | Clarin | Audience Taxonomy | Interest | Style & Fashion | Beauty</li>
+                <li  data-subcategory="Moda" data-info="Volumen: 1530347" onclick="selectItem(this)">Permutive | Clarin | Audience Taxonomy | Interest | Style & Fashion</li>
+                <li  data-subcategory="Alimentacion-bebidas" data-info="Volumen: 4862114" onclick="selectItem(this)">Permutive | Clarin | Audience Taxonomy | Interest | Food & Drink</li>
+                <li  data-subcategory="Hogar-jardin" data-info="Volumen: 898322" onclick="selectItem(this)">Permutive | Clarin | Audience Taxonomy | Interest | Home and Garden</li>
+                <li  data-subcategory="Entretenimiento" data-info="Volumen: 9796904" onclick="selectItem(this)">Permutive | Clarin | Audience Taxonomy | Interest | Hobbies & Interests</li>
+                <li  data-subcategory="Automotriz" data-info="Volumen: 2430234" onclick="selectItem(this)">Permutive | Clarin | Audience Taxonomy | Interest | Automotive (LKL)</li>
+                <li  data-subcategory="Deportes-aficiones" data-info="Volumen: 7032582" onclick="selectItem(this)">Permutive | Clarin | Audience Taxonomy | Interest | Sports</li>
+                <li  data-subcategory="Eventos-actividades" data-info="Volumen: 994998" onclick="selectItem(this)">Permutive | Clarin | Content Taxonomy | Events and Attractions</li>
+                <li  data-subcategory="Mercado-inmobiliario" data-info="Volumen: 9861775" onclick="selectItem(this)">Permutive | Clarin | Audience Taxonomy | Interest | Real Estate</li>
+                <li  data-subcategory="Agro" data-info="Volumen: 10171955" onclick="selectItem(this)">Permutive | Clarin | Interest | Business and Finance | Agriculture</li>
+                <li  data-subcategory="Supermercados" data-info="Volumen: 17801145" onclick="selectItem(this)">Permutive | Clarin | Audience Taxonomy | Interest | Shopping</li>
+                <li  data-subcategory="Construcción-Decoración" data-info="Volumen: 3370062" onclick="selectItem(this)">"Permutive | Clarin | Interest | Home & Garden | Remodeling & Construction"</li>
+                <li  data-subcategory="Medios de comunicación" data-info="Volumen: 637147" onclick="selectItem(this)">Permutive | Clarin | Interest | Business and Finance | Media Industry</li>
+                <li  data-subcategory="Telecomunicaciones" data-info="Volumen: 238244" onclick="selectItem(this)">Permutive | Clarin | Interest | Business and Finance | Telecommunications Industry </li>
+
             </ul>
             
             <div class="info" id="info">
