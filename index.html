@@ -216,18 +216,18 @@ li:hover {
 
 
 .info {
-    position: fixed;
-    top: 400px; 
-    left: 20px; 
-    max-width: 400px; 
-    padding: 15px;
-    background-color: #2a2a2a;
-    border: 1px solid #444;
-    border-radius: 8px;
-    display: none; 
-    z-index: 1000; 
-    overflow: hidden; 
-    box-sizing: border-box; 
+    position: fixed; 
+    top: 450px;      
+    left: 20px;      
+    max-width: 300px; 
+    padding: 15px;   
+    background-color: #2a2a2a; 
+    border: 1px solid #444;   
+    border-radius: 8px;        
+    display: none;            
+    z-index: 1000;            
+    overflow: hidden;         
+    box-sizing: border-box;  
 }
 
 .info-title {
@@ -438,6 +438,10 @@ li:hover {
     opacity: 1;
     pointer-events: auto;
 }
+.submenu {
+            display: none;
+            margin-left: 20px;
+        }
 
 
 @media (max-width: 768px) {
@@ -650,9 +654,10 @@ li:hover {
             <div class="category">
                 <select id="categorySelect" onchange="filterByCategoryAndSubcategory()">
                     <option value="all">Por categoría</option>
-                    <option value="Demographic">Demográficas</option>
-                    <option value="Salud">Salud y Bienestar</option>
+                    <option value="Demographic-age">Demográficas(edad)</option>
+                    <option value="Demographic-gender">Demográficas(sexo)</option>
                     <option value="Geolocalizacion">Geolocalizadas</option>
+                    <option value="Salud-bienestar">Salud y Bienestar</option>
                     <option value="Negocios">Negocios</option>
                     <option value="Finanzas">Finanzas</option>
                     <option value="Entretenimiento-Cultura">Entretenimiento y Cultura</option>
@@ -673,6 +678,13 @@ li:hover {
                     <option value="Empleo">Empleo</option>
                     <option value="Tipo de lector">Tipo de lector</option>
                 </select>
+                <div id="geolocalizacionSubmenu" class="submenu">
+                    <select id="geolocalizacionSelect" onchange="filterByCategoryAndSubcategory()">
+                        <option value="all">Todas</option>
+                        <option value="Geolocalizacion-provincias">Provincias</option>
+                        <option value="Geolocalizacion-partidos">Partidos</option>
+                    </select>
+                </div>
                 <select id="subcategorySelect" onchange="filterByCategoryAndSubcategory()">
                     <option value="all">Por rubro</option>
                     <option value="Tec">Tecnología y electrónica</option>
@@ -708,12 +720,30 @@ li:hover {
         </div>
         <div class="main">
             <ul id="itemList">
-                <li data-category="Demographic" data-subcategory="Demographic-Age" data-info="Volumen: 10000" onclick="selectItem(this)">Permutive | Clarin | Audience Taxonomy | Demographic | Age Range (by login) | 18-20</li>
-                <li data-category="Demographic" data-subcategory="Demographic-Gender" data-info="Volumen: 8000" onclick="selectItem(this)">Permutive | Clarin | Audience Taxonomy | Demographic | Gender | Female</li>
+                <li data-category="Demographic-age" data-subcategory="Demographic-Age" data-info="Volumen: 100.659" onclick="selectItem(this)">Permutive | Clarin | Audience Taxonomy | Demographic | Age Range (by login) | 18-20</li>
+                <li data-category="Demographic-age" data-subcategory="Demographic-Age" data-info="Volumen: 72.538" onclick="selectItem(this)">Permutive | Clarin | Audience Taxonomy | Demographic | Age Range (by login) | 21-24</li>
+                <li data-category="Demographic-age" data-subcategory="Demographic-Age" data-info="Volumen: 177.625" onclick="selectItem(this)">Permutive | Clarin | Audience Taxonomy | Demographic | Age Range (by login) | 25-29</li>
+                <li data-category="Demographic-age" data-subcategory="Demographic-Age" data-info="Volumen: 86.086" onclick="selectItem(this)">Permutive | Clarin | Audience Taxonomy | Demographic | Age Range (by login) | 30-34</li>
+                <li data-category="Demographic-age" data-subcategory="Demographic-Age" data-info="Volumen: 104.258" onclick="selectItem(this)">Permutive | Clarin | Audience Taxonomy | Demographic | Age Range (by login) | 35-39</li>
+                <li data-category="Demographic-age" data-subcategory="Demographic-Age" data-info="Volumen: 232.216" onclick="selectItem(this)">Permutive | Clarin | Audience Taxonomy | Demographic | Age Range (by login) | 40-44</li>
+                <li data-category="Demographic-age" data-subcategory="Demographic-Age" data-info="Volumen: 156.977" onclick="selectItem(this)">Permutive | Clarin | Audience Taxonomy | Demographic | Age Range (by login) | 45-49</li>
+                <li data-category="Demographic-age" data-subcategory="Demographic-Age" data-info="Volumen: 236.073" onclick="selectItem(this)">Permutive | Clarin | Audience Taxonomy | Demographic | Age Range (by login) | 50-54</li>
+                <li data-category="Demographic-age" data-subcategory="Demographic-Age" data-info="Volumen: 232.393" onclick="selectItem(this)">Permutive | Clarin | Audience Taxonomy | Demographic | Age Range (by login) | 55-59</li>
+                <li data-category="Demographic-age" data-subcategory="Demographic-Age" data-info="Volumen: 214.605" onclick="selectItem(this)">Permutive | Clarin | Audience Taxonomy | Demographic | Age Range (by login) | 60-64</li>
+                <li data-category="Demographic-age" data-subcategory="Demographic-Age" data-info="Volumen: 223.377" onclick="selectItem(this)">Permutive | Clarin | Audience Taxonomy | Demographic | Age Range (by login) | 65-69</li>
+                <li data-category="Demographic-age" data-subcategory="Demographic-Age" data-info="Volumen: 399.473" onclick="selectItem(this)">Permutive | Clarin | Audience Taxonomy | Demographic | Age Range (by login) | 70-74</li>
+                <li data-category="Demographic-age" data-subcategory="Demographic-Age" data-info="Volumen: 135.769" onclick="selectItem(this)">Permutive | Clarin | Audience Taxonomy | Demographic | Age Range (by login) | 75+</li>
+                <li data-category="Demographic-gender" data-subcategory="Demographic-Gender" data-info="Volumen: 721.261" onclick="selectItem(this)">Permutive | Clarin | Audience Taxonomy | Demographic | Gender | Female</li>
+                <li data-category="Demographic-gender" data-subcategory="Demographic-Gender" data-info="Volumen: 867.325" onclick="selectItem(this)">Permutive | Clarin | Audience Taxonomy | Demographic | Gender | Male</li>
                 <li data-category="Geolocalizacion" data-subcategory="" data-info="Volumen: 5000" onclick="selectItem(this)">Permutive - Localidad - Martinez - Buenos Aires - Clarin</li>
-                <li data-category="Negocios" data-subcategory="Business-Finance" data-info="Volumen: 15000" onclick="selectItem(this)">Permutive | Clarin | Audience Taxonomy | Interest | Business and Finance</li>
-                <li data-category="Demographic" data-subcategory="Demographic-Age" data-info="Volumen: 12000" onclick="selectItem(this)">Permutive | Clarin | Audience Taxonomy | Demographic | Age Range (by login) | 21-24</li>
                 <li data-category="Geolocalizacion" data-subcategory="" data-info="Volumen: 7000" onclick="selectItem(this)">Permutive - Localidad - Quilmes Oeste - Buenos Aires - Clarin</li>
+                <li data-category="Salud-bienestar" data-subcategory="" data-info="Volumen: 622.770" onclick="selectItem(this)">Permutive | Clarin | Content Taxonomy | Healthy Living</li>
+                <li data-category="Salud-bienestar" data-subcategory="" data-info="Volumen: 8.156.614" onclick="selectItem(this)">Permutive | Clarin | Audience Taxonomy | Interest | Healthy Living</li>
+                <li data-category="Salud-bienestar" data-subcategory="" data-info="Volumen: 13.772.257" onclick="selectItem(this)">Permutive | Clarin | Audience Taxonomy | Interest | Health and Medical Services</li>
+                <li data-category="Salud-bienestar" data-subcategory="" data-info="Volumen: 791.759" onclick="selectItem(this)">Permutive | Clarin | Content Taxonomy | Medical Health</li>
+                <li data-category="Salud-bienestar" data-subcategory="" data-info="Volumen: 6.811.027" onclick="selectItem(this)">Permutive | Clarin | Audience Taxonomy | Interest | Medical Health</li>
+                <li data-category="Negocios" data-subcategory="Business-Finance" data-info="Volumen: 15000" onclick="selectItem(this)">Permutive | Clarin | Audience Taxonomy | Interest | Business and Finance</li>
+                
                 <li data-category="Negocios" data-subcategory="Business-Industries" data-info="Volumen: 20000" onclick="selectItem(this)">Permutive | Clarin | Audience Taxonomy | Interest | Business and Finance | Industries</li>
                 <li  data-subcategory="Tec" data-info="Volumen: 1792681" onclick="selectItem(this)">Permutive | Clarin | Audience Taxonomy | Interest | Technology & Computing</li>
                 <li  data-subcategory="Salud" data-info="Volumen: 9630880" onclick="selectItem(this)">Permutive | Clarin | Audience Taxonomy | Interest | Health and Medical Services</li>
@@ -771,7 +801,7 @@ li:hover {
         function selectItem(element) {
             let title = element.innerText;
             let info = element.getAttribute("data-info");
-            let volume = parseInt(info.match(/Volumen: (\d+)/)[1], 10);
+            let volume = parseFloat(info.match(/Volumen: ([\d.]+)/)[1].replace('.', ''));
             let category = element.getAttribute("data-category");
             let infoElement = document.getElementById("info");
             document.getElementById("infoTitle").innerText = title;
@@ -793,66 +823,73 @@ li:hover {
         }
 
         function addToSelectedItems(itemName) {
-    let infoElement = document.getElementById("info");
-    let title = itemName || document.getElementById("infoTitle").innerText;
-    let volume = parseInt(document.getElementById("infoContent").innerText.match(/Volumen: (\d+)/)[1], 10);
+            let infoElement = document.getElementById("info");
+            let title = itemName || document.getElementById("infoTitle").innerText;
+            let volume = parseFloat(document.getElementById("infoContent").innerText.match(/Volumen: ([\d.]+)/)[1].replace('.', ''));
 
-    if (!selectedItems[title]) {
-        selectedItems[title] = volume;
-    } else {
-        selectedItems[title] += volume;
-    }
+            if (!selectedItems[title]) {
+                selectedItems[title] = volume;
+            } else {
+                selectedItems[title] += volume;
+            }
 
-    updateSelectedItemList();
-    infoElement.style.display = "none";
-    document.getElementById("recommendations").style.display = "none";
+            updateSelectedItemList();
+            infoElement.style.display = "none";
+            document.getElementById("recommendations").style.display = "none";
+            showNotification("¡Audiencia agregada al carrito!");
+        }
 
-    
-    showNotification("¡Audiencia agregada al carrito!");
-}
+        function removeSelectedItem(itemName) {
+            delete selectedItems[itemName];
+            updateSelectedItemList();
+            showNotification("¡Audiencia eliminada del carrito!");
+        }
 
-function removeSelectedItem(itemName) {
-    delete selectedItems[itemName];
-    updateSelectedItemList();
-    showNotification("¡Audiencia eliminada del carrito!");
-}
+        function updateSelectedItemList() {
+            let selectedItemList = document.getElementById("selectedItemList");
+            selectedItemList.innerHTML = "";
+            let volumeTotal = 0;
 
-function updateSelectedItemList() {
-    let selectedItemList = document.getElementById("selectedItemList");
-    selectedItemList.innerHTML = "";
-    let volumeTotal = 0;
+            for (let itemName in selectedItems) {
+                let li = document.createElement("li");
+                li.innerText = itemName + " - Volumen: " + selectedItems[itemName].toLocaleString('de-DE');
+                let removeButton = document.createElement("button");
+                removeButton.innerText = "Eliminar";
+                removeButton.onclick = () => removeSelectedItem(itemName);
+                li.appendChild(removeButton);
+                selectedItemList.appendChild(li);
+                volumeTotal += selectedItems[itemName];
+            }
 
-    for (let itemName in selectedItems) {
-        let li = document.createElement("li");
-        li.innerText = itemName + " - Volumen: " + selectedItems[itemName];
-        let removeButton = document.createElement("button");
-        removeButton.innerText = "Eliminar";
-        removeButton.onclick = () => removeSelectedItem(itemName);
-        li.appendChild(removeButton);
-        selectedItemList.appendChild(li);
-        volumeTotal += selectedItems[itemName];
-    }
+            document.getElementById("volumeTotal").innerText = volumeTotal.toLocaleString('de-DE');
+        }
 
-    document.getElementById("volumeTotal").innerText = volumeTotal;
-}
-
-function filterItems() {
-    let searchInput = document.getElementById("searchInput").value.toLowerCase();
-    filterByCategoryAndSubcategory(searchInput);
-}
-
-function filterByCategoryAndSubcategory(searchInput = "") {
+        function filterItems() {
+            let searchInput = document.getElementById("searchInput").value.toLowerCase();
+            filterByCategoryAndSubcategory(searchInput);
+        }
+        function filterByCategoryAndSubcategory(searchInput = "") {
     let categorySelect = document.getElementById("categorySelect").value;
-    let subcategorySelect = document.getElementById("subcategorySelect").value;
+    let subcategorySelect = document.getElementById("subcategorySelect") ? document.getElementById("subcategorySelect").value : "all";
     let items = document.getElementById("itemList").getElementsByTagName("li");
+    
+    if (categorySelect === "Geolocalizacion") {
+        document.getElementById("geolocalizacionSubmenu").style.display = "block";
+    } else {
+        document.getElementById("geolocalizacionSubmenu").style.display = "none";
+    }
+
     for (let i = 0; i < items.length; i++) {
         let item = items[i];
         let itemCategory = item.getAttribute("data-category");
         let itemSubcategory = item.getAttribute("data-subcategory");
         let itemText = item.innerText.toLowerCase();
-        if ((categorySelect === "all" || itemCategory === categorySelect) &&
-            (subcategorySelect === "all" || itemSubcategory === subcategorySelect) &&
-            (itemText.includes(searchInput))) {
+
+        let categoryMatch = (categorySelect === "all" || itemCategory === categorySelect);
+        let subcategoryMatch = (subcategorySelect === "all" || itemSubcategory === subcategorySelect);
+        let textMatch = itemText.includes(searchInput.toLowerCase());
+
+        if (categoryMatch && subcategoryMatch && textMatch) {
             item.style.display = "block";
         } else {
             item.style.display = "none";
@@ -860,31 +897,32 @@ function filterByCategoryAndSubcategory(searchInput = "") {
     }
 }
 
-function clearSearch() {
-    document.getElementById("searchInput").value = "";
-    filterByCategoryAndSubcategory();
-}
+        function clearSearch() {
+            document.getElementById("searchInput").value = "";
+            filterByCategoryAndSubcategory();
+        }
 
-function clearFilters() {
-    document.getElementById("searchInput").value = "";
-    document.getElementById("categorySelect").value = "all";
-    document.getElementById("subcategorySelect").value = "all";
-    filterByCategoryAndSubcategory();
-}
+        function clearFilters() {
+            document.getElementById("searchInput").value = "";
+            document.getElementById("categorySelect").value = "all";
+            document.getElementById("subcategorySelect").value = "all";
+            filterByCategoryAndSubcategory();
+        }
 
-function toggleSelectedItems() {
-    let selectedItemsPanel = document.getElementById("selectedItems");
-    selectedItemsPanel.classList.toggle("open");
-}
+        function toggleSelectedItems() {
+            let selectedItemsPanel = document.getElementById("selectedItems");
+            selectedItemsPanel.classList.toggle("open");
+        }
 
-function showNotification(message) {
-    let notification = document.getElementById("notification");
-    notification.innerText = message;
-    notification.classList.add("show");
-    setTimeout(() => {
-        notification.classList.remove("show");
-    }, 3000);
-}
+        function showNotification(message) {
+            let notification = document.getElementById("notification");
+            notification.innerText = message;
+            notification.classList.add("show");
+            setTimeout(() => {
+                notification.classList.remove("show");
+            }, 3000);
+        }
+        
     </script>
 </body>
 </html>
