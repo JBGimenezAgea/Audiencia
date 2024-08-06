@@ -635,6 +635,11 @@ li:hover {
     }
 }
 
+.selected {
+    
+    color: #565555;
+    }
+
 
 
 
@@ -787,6 +792,7 @@ li:hover {
     </div>
     <button class="open-panel-btn" id="openPanelBtn" onclick="toggleSelectedItems()"></button>
     <div class="notification" id="notification">¡Audiencia agregada al carrito!</div>
+    
     <script>
         let selectedItems = {};
         let recommendations = {
@@ -797,16 +803,25 @@ li:hover {
                 "Permutive | Clarin | Audience Taxonomy | Interest | Business and Finance | Industries"
             ]
         };
-
+    
         function selectItem(element) {
             let title = element.innerText;
             let info = element.getAttribute("data-info");
             let volume = parseFloat(info.match(/Volumen: ([\d.]+)/)[1].replace('.', ''));
             let category = element.getAttribute("data-category");
             let infoElement = document.getElementById("info");
+    
             document.getElementById("infoTitle").innerText = title;
             document.getElementById("infoContent").innerText = info;
             infoElement.style.display = "block";
+    
+            
+            if (selectedItems[title]) {
+                element.classList.add("selected");
+            } else {
+                element.classList.remove("selected");
+            }
+    
             if (category === "Negocios") {
                 let recommendationList = document.getElementById("recommendationList");
                 recommendationList.innerHTML = "";
@@ -821,6 +836,7 @@ li:hover {
                 document.getElementById("recommendations").style.display = "none";
             }
         }
+<<<<<<< HEAD
 
         function addToSelectedItems(itemName) {
             let infoElement = document.getElementById("info");
@@ -839,20 +855,58 @@ li:hover {
             showNotification("¡Audiencia agregada al carrito!");
         }
 
+=======
+    
+        function addToSelectedItems(itemName) {
+            let infoElement = document.getElementById("info");
+            let title = itemName || document.getElementById("infoTitle").innerText;
+            let volume = parseInt(document.getElementById("infoContent").innerText.match(/Volumen: (\d+)/)[1], 10);
+    
+            if (!selectedItems[title]) {
+                selectedItems[title] = volume;
+                showNotification("¡Audiencia agregada al carrito!");
+            } else {
+                showNotification("¡Audiencia ya está en el carrito!");
+            }
+    
+            
+            updateSelectedItemList();
+            infoElement.style.display = "none";
+            document.getElementById("recommendations").style.display = "none";
+    
+            
+            updateListStyles();
+        }
+    
+>>>>>>> f53607317a6bb5c0fec84b13ea5c90071a90e2e2
         function removeSelectedItem(itemName) {
             delete selectedItems[itemName];
             updateSelectedItemList();
             showNotification("¡Audiencia eliminada del carrito!");
+<<<<<<< HEAD
         }
 
+=======
+    
+            updateListStyles();
+        }
+    
+>>>>>>> f53607317a6bb5c0fec84b13ea5c90071a90e2e2
         function updateSelectedItemList() {
             let selectedItemList = document.getElementById("selectedItemList");
             selectedItemList.innerHTML = "";
             let volumeTotal = 0;
+<<<<<<< HEAD
 
             for (let itemName in selectedItems) {
                 let li = document.createElement("li");
                 li.innerText = itemName + " - Volumen: " + selectedItems[itemName].toLocaleString('de-DE');
+=======
+    
+            for (let itemName in selectedItems) {
+                let li = document.createElement("li");
+                li.innerText = itemName + " - Volumen: " + selectedItems[itemName];
+>>>>>>> f53607317a6bb5c0fec84b13ea5c90071a90e2e2
                 let removeButton = document.createElement("button");
                 removeButton.innerText = "Eliminar";
                 removeButton.onclick = () => removeSelectedItem(itemName);
@@ -860,14 +914,35 @@ li:hover {
                 selectedItemList.appendChild(li);
                 volumeTotal += selectedItems[itemName];
             }
+<<<<<<< HEAD
 
             document.getElementById("volumeTotal").innerText = volumeTotal.toLocaleString('de-DE');
         }
 
+=======
+    
+            document.getElementById("volumeTotal").innerText = volumeTotal;
+        }
+    
+        function updateListStyles() {
+            let items = document.getElementById("itemList").getElementsByTagName("li");
+            for (let i = 0; i < items.length; i++) {
+                let item = items[i];
+                let itemTitle = item.innerText.split(" - ")[0]; 
+                if (selectedItems[itemTitle]) {
+                    item.classList.add("selected");
+                } else {
+                    item.classList.remove("selected");
+                }
+            }
+        }
+    
+>>>>>>> f53607317a6bb5c0fec84b13ea5c90071a90e2e2
         function filterItems() {
             let searchInput = document.getElementById("searchInput").value.toLowerCase();
             filterByCategoryAndSubcategory(searchInput);
         }
+<<<<<<< HEAD
         function filterByCategoryAndSubcategory(searchInput = "") {
     let categorySelect = document.getElementById("categorySelect").value;
     let subcategorySelect = document.getElementById("subcategorySelect") ? document.getElementById("subcategorySelect").value : "all";
@@ -923,7 +998,55 @@ li:hover {
             }, 3000);
         }
         
+=======
+    
+        function filterByCategoryAndSubcategory(searchInput = "") {
+            let categorySelect = document.getElementById("categorySelect").value;
+            let subcategorySelect = document.getElementById("subcategorySelect").value;
+            let items = document.getElementById("itemList").getElementsByTagName("li");
+            for (let i = 0; i < items.length; i++) {
+                let item = items[i];
+                let itemCategory = item.getAttribute("data-category");
+                let itemSubcategory = item.getAttribute("data-subcategory");
+                let itemText = item.innerText.toLowerCase();
+                if ((categorySelect === "all" || itemCategory === categorySelect) &&
+                    (subcategorySelect === "all" || itemSubcategory === subcategorySelect) &&
+                    (itemText.includes(searchInput))) {
+                    item.style.display = "block";
+                } else {
+                    item.style.display = "none";
+                }
+            }
+        }
+    
+        function clearSearch() {
+            document.getElementById("searchInput").value = "";
+            filterByCategoryAndSubcategory();
+        }
+    
+        function clearFilters() {
+            document.getElementById("searchInput").value = "";
+            document.getElementById("categorySelect").value = "all";
+            document.getElementById("subcategorySelect").value = "all";
+            filterByCategoryAndSubcategory();
+        }
+    
+        function toggleSelectedItems() {
+            let selectedItemsPanel = document.getElementById("selectedItems");
+            selectedItemsPanel.classList.toggle("open");
+        }
+    
+        function showNotification(message) {
+            let notification = document.getElementById("notification");
+            notification.innerText = message;
+            notification.classList.add("show");
+            setTimeout(() => {
+                notification.classList.remove("show");
+            }, 3000);
+        }
+>>>>>>> f53607317a6bb5c0fec84b13ea5c90071a90e2e2
     </script>
+    
 </body>
 </html>
 
