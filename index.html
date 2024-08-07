@@ -1089,20 +1089,19 @@
         };
 
         function selectItem(element) {
+            let openItems = document.querySelectorAll('.open');
+            openItems.forEach(item => {
+                if (item !== element) {
+                    item.classList.remove('open');
+                }
+            });
+
             if (element.classList.contains('open')) {
                 element.classList.remove('open');
             } else {
                 element.classList.add('open');
             }
         }
-
-        function selectItem(element) {
-    if (element.classList.contains('open')) {
-        element.classList.remove('open');
-    } else {
-        element.classList.add('open');
-    }
-}
 
 function addToSelectedItems(button) {
     let liElement = button.closest('li');
