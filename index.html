@@ -657,6 +657,7 @@
                     <option value="Orden">Orden público y seguridad</option>
                     <option value="Empleo">Empleo</option>
                     <option value="Tipo de lector">Tipo de lector</option>
+                    <option value="Clima">Clima y medioambiente</option>
                 </select>
                 <div id="demograficasSubmenu" class="submenu">
                     <select id="demograficasSubcategorySelect" onchange="filterByCategoryAndSubcategory()">
@@ -707,6 +708,8 @@
         </div>
         <div class="main">
             <ul id="itemList">
+
+                <!--Demograficas-->
                 <li data-category="Demographic" data-subcategory="Demographic-Age" data-info="Volumen: 100.659" onclick="selectItem(this)">
                     Permutive | Clarin | Audience Taxonomy | Demographic | Age Range (by login) | 18-20
                     <div class="info-content">
@@ -747,7 +750,7 @@
                         <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
                     </div>
                 </li>
-                <li data-category="Demographic" data-subcategory="" data-info="Volumen: 232.216" onclick="selectItem(this)">
+                <li data-category="Demographic" data-subcategory="Demographic-Age" data-info="Volumen: 232.216" onclick="selectItem(this)">
                     Permutive | Clarin | Audience Taxonomy | Demographic | Age Range (by login) | 40-44
                     <div class="info-content">
                         <div class="info-title">Información adicional</div>
@@ -755,7 +758,7 @@
                         <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
                     </div>
                 </li>
-                <li data-category="Demographic" data-subcategory="" data-info="Volumen: 156.977" onclick="selectItem(this)">
+                <li data-category="Demographic" data-subcategory="Demographic-Age" data-info="Volumen: 156.977" onclick="selectItem(this)">
                     Permutive | Clarin | Audience Taxonomy | Demographic | Age Range (by login) | 45-49
                     <div class="info-content">
                         <div class="info-title">Información adicional</div>
@@ -763,7 +766,7 @@
                         <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
                     </div>
                 </li>
-                <li data-category="Demographic" data-subcategory="" data-info="Volumen: 236.073" onclick="selectItem(this)">
+                <li data-category="Demographic" data-subcategory="Demographic-Age" data-info="Volumen: 236.073" onclick="selectItem(this)">
                     Permutive | Clarin | Audience Taxonomy | Demographic | Age Range (by login) | 50-54
                     <div class="info-content">
                         <div class="info-title">Información adicional</div>
@@ -771,7 +774,7 @@
                         <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
                     </div>
                 </li>
-                <li data-category="Demographic" data-subcategory="" data-info="Volumen: 232.393" onclick="selectItem(this)">
+                <li data-category="Demographic" data-subcategory="Demographic-Age" data-info="Volumen: 232.393" onclick="selectItem(this)">
                     Permutive | Clarin | Audience Taxonomy | Demographic | Age Range (by login) | 55-59
                     <div class="info-content">
                         <div class="info-title">Información adicional</div>
@@ -779,7 +782,7 @@
                         <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
                     </div>
                 </li>
-                <li data-category="Demographic" data-subcategory="" data-info="Volumen: 214.605" onclick="selectItem(this)">
+                <li data-category="Demographic" data-subcategory="Demographic-Age" data-info="Volumen: 214.605" onclick="selectItem(this)">
                     Permutive | Clarin | Audience Taxonomy | Demographic | Age Range (by login) | 60-64
                     <div class="info-content">
                         <div class="info-title">Información adicional</div>
@@ -787,7 +790,7 @@
                         <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
                     </div>
                 </li>
-                <li data-category="Demographic" data-subcategory="" data-info="Volumen: 223.377" onclick="selectItem(this)">
+                <li data-category="Demographic" data-subcategory="Demographic-Age" data-info="Volumen: 223.377" onclick="selectItem(this)">
                     Permutive | Clarin | Audience Taxonomy | Demographic | Age Range (by login) | 65-69
                     <div class="info-content">
                         <div class="info-title">Información adicional</div>
@@ -795,7 +798,7 @@
                         <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
                     </div>
                 </li>
-                <li data-category="Demographic" data-subcategory="" data-info="Volumen: 399.473" onclick="selectItem(this)">
+                <li data-category="Demographic" data-subcategory="Demographic-Age" data-info="Volumen: 399.473" onclick="selectItem(this)">
                     Permutive | Clarin | Audience Taxonomy | Demographic | Age Range (by login) | 70-74
                     <div class="info-content">
                         <div class="info-title">Información adicional</div>
@@ -803,7 +806,7 @@
                         <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
                     </div>
                 </li>
-                <li data-category="Demographic" data-subcategory="" data-info="Volumen: 135.769" onclick="selectItem(this)">
+                <li data-category="Demographic" data-subcategory="Demographic-Age" data-info="Volumen: 135.769" onclick="selectItem(this)">
                     Permutive | Clarin | Audience Taxonomy | Demographic | Age Range (by login) | 75+
                     <div class="info-content">
                         <div class="info-title">Información adicional</div>
@@ -811,7 +814,7 @@
                         <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
                     </div>
                 </li>
-                <li data-category="Demographic" data-subcategory="" data-info="Volumen: 721.261" onclick="selectItem(this)">
+                <li data-category="Demographic" data-subcategory="Demographic-Gender" data-info="Volumen: 721.261" onclick="selectItem(this)">
                     Permutive | Clarin | Audience Taxonomy | Demographic | Gender | Female
                     <div class="info-content">
                         <div class="info-title">Información adicional</div>
@@ -819,7 +822,7 @@
                         <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
                     </div>
                 </li>
-                <li data-category="Demographic" data-subcategory="" data-info="Volumen: 867.325" onclick="selectItem(this)">
+                <li data-category="Demographic" data-subcategory="Demographic-Gender" data-info="Volumen: 867.325" onclick="selectItem(this)">
                     Permutive | Clarin | Audience Taxonomy | Demographic | Gender | Male
                     <div class="info-content">
                         <div class="info-title">Información adicional</div>
@@ -843,6 +846,8 @@
                         <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
                     </div>
                 </li>
+
+                <!--Salud y Bienestar-->
                 <li data-category="Salud-bienestar" data-subcategory="" data-info="Volumen: 622.770" onclick="selectItem(this)">
                     Permutive | Clarin | Content Taxonomy | Healthy Living
                     <div class="info-content">
@@ -883,6 +888,8 @@
                         <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
                     </div>
                 </li>
+
+                <!--Negocios-->
                 <li data-category="Negocios" data-subcategory="Business-Finance" data-info="Volumen: 15000" onclick="selectItem(this)">
                     Permutive | Clarin | Audience Taxonomy | Interest | Business and Finance
                     <div class="info-content">
@@ -900,6 +907,895 @@
                         <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
                     </div>
                 </li>
+                <li data-category="Negocios" data-subcategory="Business-Industries" data-info="Volumen: 595.857" onclick="selectItem(this)">
+                    Permutive | Clarin | Content Taxonomy | Real Estate
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 595.857</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li data-category="Negocios" data-subcategory="Business-Industries" data-info="Volumen: 10.881.290" onclick="selectItem(this)">
+                    Permutive | Clarin | Audience Taxonomy | Interest | Business and Finance | Business
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 10.881.290</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li data-category="Negocios" data-subcategory="Business-Industries" data-info="Volumen: 8.073.781" onclick="selectItem(this)">
+                    Permutive | Clarin | Audience Taxonomy | Interest | Business and Finance | Economy 
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 8.073.781</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li data-category="Negocios" data-subcategory="Business-Industries" data-info="Volumen: 272.038" onclick="selectItem(this)">
+                    Permutive | Clarin | Audience Taxonomy | Interest | Business and Finance | Pharmaceutical Industry 
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 272.038</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li data-category="Negocios" data-subcategory="Business-Industries" data-info="Volumen: 1.379.707" onclick="selectItem(this)">
+                    Permutive | Clarin | Audience Taxonomy | Interest | Business and Finance | Power and Energy Industry |
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 1.379.707</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li data-category="Negocios" data-subcategory="Business-Industries" data-info="Volumen: 1.500.000" onclick="selectItem(this)">
+                    Permutive | Clarin | Audience Taxonomy | Interest | Business and Finance | Telecommunications Industry
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 1.500.000</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li data-category="Negocios" data-subcategory="Business-Industries" data-info="Volumen: 4.002.920" onclick="selectItem(this)">
+                    Permutive | Clarin | Audience Taxonomy | Interest | Business and Finance | Small and Medium-sized Business
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 4.002.920</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li data-category="Negocios" data-subcategory="Business-Industries" data-info="Volumen: 4.674.121" onclick="selectItem(this)">
+                    Permutive - Pymes - Clarin - Paquete Intereses - Percepción [Lookalike: 45.4% similarity, including seed]
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 4.674.121</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li data-category="Negocios" data-subcategory="Business-Industries" data-info="Volumen: 4.479.855" onclick="selectItem(this)">
+                    Permutive - Emprendedores - Clarin - Paquete Intereses - Percepción
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 4.479.855</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li data-category="Negocios" data-subcategory="Business-Industries" data-info="Volumen: 11.913.509" onclick="selectItem(this)">
+                    Permutive - Comercio Electrónico - Clarin - Paquete Intereses - Percepción
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 11.913.509</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li data-category="Negocios" data-subcategory="Business-Industries" data-info="Volumen: 3.916.217" onclick="selectItem(this)">
+                    Permutive - Sector Industrial - Clarin - Paquete Intereses - Percepción
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 3.916.217</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li data-category="Negocios" data-subcategory="Business-Industries" data-info="Volumen: 15.903.086" onclick="selectItem(this)">
+                    Permutive - Sector Comercial - Clarin - Paquete Intereses - Percepción
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 15.903.086</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+
+                <!--Finanzas--> 
+                <li data-category="Finanzas" data-subcategory="" data-info="Volumen: 6.351.759" onclick="selectItem(this)">
+                    Permutive - Divisas - Clarin - Paquete Interés - Percepción
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 6.351.759</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li data-category="Finanzas" data-subcategory="" data-info="Volumen: 15.092.797" onclick="selectItem(this)">
+                    Permutive | Clarin | Audience Taxonomy | Interest | Personal Finance
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 15.092.797</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li data-category="Finanzas" data-subcategory="" data-info="Volumen: 640.423" onclick="selectItem(this)">
+                    Permutive | Clarin | Content Taxonomy | Personal Finance
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 640.423</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li data-category="Finanzas" data-subcategory="" data-info="Volumen: 3.108.251" onclick="selectItem(this)">
+                    Permutive - Criptomonedas - Clarin - Paquete Interés - Percepción
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 3.108.251</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li data-category="Finanzas" data-subcategory="" data-info="Volumen: 14.939.878" onclick="selectItem(this)">
+                    Permutive - Servicios Bancarios - Clarin - Paquete Intereses - Percepción
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 14.939.878</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li data-category="Finanzas" data-subcategory="" data-info="Volumen: 8.449.519" onclick="selectItem(this)">
+                    Permutive - Préstamos y Créditos bancarios - Clarin - Paquete Intereses - Percepción
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 8.449.519</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+
+                <!--Entretenimiento y cultura-->
+                <li data-category="Entretenimiento-Cultura" data-subcategory="" data-info="Volumen: 209.730" onclick="selectItem(this)">
+                    Permutive | Clarin | Content Taxonomy | Movies
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 209.730</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li data-category="Entretenimiento-Cultura" data-subcategory="" data-info="Volumen: 209.730" onclick="selectItem(this)">
+                    Permutive | Clarin | Content Taxonomy | Music and Audio
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 209.884</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li data-category="Entretenimiento-Cultura" data-subcategory="" data-info="Volumen: 277.077" onclick="selectItem(this)">
+                    Permutive | Clarin | Content Taxonomy | Books and Literature
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 277.077</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li data-category="Entretenimiento-Cultura" data-subcategory="" data-info="Volumen: 1.028.594" onclick="selectItem(this)">
+                    Permutive | Clarin | Content Taxonomy | Events and Attractions
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 1.028.594</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li data-category="Entretenimiento-Cultura" data-subcategory="" data-info="Volumen: 3.026.796" onclick="selectItem(this)">
+                    Permutive | Clarin | Audience Taxonomy | Interest | Movies
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 3.026.796</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li data-category="Entretenimiento-Cultura" data-subcategory="" data-info="Volumen: 2.298.950" onclick="selectItem(this)">
+                    Permutive | Clarin | Audience Taxonomy | Interest | Television
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 2.298.950</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li data-category="Entretenimiento-Cultura" data-subcategory="" data-info="Volumen: 564.164" onclick="selectItem(this)">
+                    Permutive | Clarin | Audience Taxonomy | Interest | Music and Audio
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 564.164</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li data-category="Entretenimiento-Cultura" data-subcategory="" data-info="Volumen: 4.795.251" onclick="selectItem(this)">
+                    Permutive | Clarin | Audience Taxonomy | Interest | Fine Art
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 4.795.251</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li data-category="Entretenimiento-Cultura" data-subcategory="" data-info="Volumen: 9.446.010" onclick="selectItem(this)">
+                    Permutive | Clarin | Audience Taxonomy | Interest | Pop Culture
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 9.446.010</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li data-category="Entretenimiento-Cultura" data-subcategory="" data-info="Volumen: 3.296.592" onclick="selectItem(this)">
+                    Permutive | Clarin | Audience Taxonomy | Interest | Video Gaming
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 3.296.592</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li data-category="Entretenimiento-Cultura" data-subcategory="" data-info="Volumen: 5.234.416" onclick="selectItem(this)">
+                    Permutive - Juegos de azar y apuestas  - Clarin - Paquete Intereses - Percepción
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 5.234.416</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li data-category="Entretenimiento-Cultura" data-subcategory="" data-info="Volumen: 6.431.905" onclick="selectItem(this)">
+                    Permutive - Espectáculos (Sección) - Clarin - Paquete Intereses - Percepción
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 6.431.905</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li data-category="Entretenimiento-Cultura" data-subcategory="" data-info="Volumen: 5.400.000" onclick="selectItem(this)">
+                    Permutive | Clarin | Audience Taxonomy | Interest | Business and Finance | Media Industry
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 5.400.000</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li data-category="Entretenimiento-Cultura" data-subcategory="" data-info="Volumen: 1.152.431" onclick="selectItem(this)">
+                    Permutive - eSports - Clarín - Paquete Intereses - Percepción
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 1.152.431</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+
+                <!--Educacion y conocimientos-->
+                <li data-category="Educacion" data-subcategory="" data-info="Volumen: 264.613" onclick="selectItem(this)">
+                    Permutive | Clarin | Content Taxonomy | Education
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 264.613</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li data-category="Educacion" data-subcategory="" data-info="Volumen: 1.602.352" onclick="selectItem(this)">
+                    Permutive | Clarin | Audience Taxonomy | Interest | Academic Interests
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 1.602.352</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li data-category="Educacion" data-subcategory="" data-info="Volumen: 900.815" onclick="selectItem(this)">
+                    Permutive | Clarin | Audience Taxonomy | Interest | Books and Literature
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 900.815</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li data-category="Educacion" data-subcategory="" data-info="Volumen: 6.027.686" onclick="selectItem(this)">
+                    Permutive | Clarin | Audience Taxonomy | Interest | Education
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 6.027.686</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+
+                 <!--Estilo de vida-->
+                 <li data-category="Estilos" data-subcategory="" data-info="Volumen: 25.310" onclick="selectItem(this)">
+                    Permutive | Clarin | Content Taxonomy | Home & Garden
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 25.310</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li data-category="Estilos" data-subcategory="" data-info="Volumen: 11.041.460" onclick="selectItem(this)">
+                    Permutive | Clarin | Audience Taxonomy | Interest | Hobbies & Interests
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 11.041.460</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li data-category="Estilos" data-subcategory="" data-info="Volumen: 365.932" onclick="selectItem(this)">
+                    Permutive | Clarin | Audience Taxonomy | Interest | Home and Garden
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 365.932</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li data-category="Estilos" data-subcategory="" data-info="Volumen: 4.732.629" onclick="selectItem(this)">
+                    Permutive | Clarin | Audience Taxonomy | Interest | Pets
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 4.732.629</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li data-category="Estilos" data-subcategory="" data-info="Volumen: 12.853.575" onclick="selectItem(this)">
+                    Permutive - Lifestyle (Salidas - Esparcimiento) - Clarin - Paquete Intereses - Percepción
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 12.853.575</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+
+                <!--Noticias y actualidad-->
+                <li data-category="Noticias" data-subcategory="" data-info="Volumen: 7.113.591" onclick="selectItem(this)">
+                    Permutive | Clarin | Content Taxonomy | News and Politics
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 7.113.591</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li data-category="Noticias" data-subcategory="" data-info="Volumen: 8.956.769" onclick="selectItem(this)">
+                    Permutive | Clarin | Audience Taxonomy | Interest | News and Politics
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 8.956.769</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li data-category="Noticias" data-subcategory="" data-info="Volumen: 13.926.131" onclick="selectItem(this)">
+                    Permutive - Economía Política - Clarin - Paquete Intereses - Percepción
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 13.926.131</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li data-category="Noticias" data-subcategory="" data-info="Volumen: 2.049.518" onclick="selectItem(this)">
+                    Permutive - Elecciones - Clarin - Paquete Interés - Percepción
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 2.049.518</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li data-category="Noticias" data-subcategory="" data-info="Volumen: 9.035.916" onclick="selectItem(this)">
+                    Permutive - Indecisos políticamente - Clarin - Paquete Intereses - Percepción
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 9.035.916</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li data-category="Noticias" data-subcategory="" data-info="Volumen: 7.266" onclick="selectItem(this)">
+                    Permutive - Interés lectura de notas sobre JxC - Clarin - Paquete Intereses - Percepción
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 7.266</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li data-category="Noticias" data-subcategory="" data-info="Volumen: 9.202.789" onclick="selectItem(this)">
+                    Permutive - Política - Clarin - Paquete Intereses - Percepción
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 9.202.789</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li data-category="Noticias" data-subcategory="" data-info="Volumen: 23.600" onclick="selectItem(this)">
+                    Permutive - Interés lectura de notas sobre Peronismo - Clarin - Paquete Intereses - Percepción
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 23.600</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+
+                <!--Deportes-->
+                <li data-category="deportes" data-subcategory="" data-info="Volumen: 5.809.964" onclick="selectItem(this)">
+                    Permutive | Clarin | Audience Taxonomy | Interest | Sports
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 5.809.964</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li data-category="deportes" data-subcategory="" data-info="Volumen: 4.406.426" onclick="selectItem(this)">
+                    Permutive | Clarin | Content Taxonomy | Sports
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 4.406.426</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li data-category="deportes" data-subcategory="" data-info="Volumen: 2.978.464" onclick="selectItem(this)">
+                    Permutive - Futbol - Clarín - Paquete Interes - Percepción
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 2.978.464</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li data-category="deportes" data-subcategory="" data-info="Volumen: 49.621" onclick="selectItem(this)">
+                    Permutive - Golf - Clarin - Paquete Intereses - Percepción
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 49.621</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li data-category="deportes" data-subcategory="" data-info="Volumen: 1.239.281" onclick="selectItem(this)">
+                    Permutive - Running (Maratones y Triatlón) - Clarin - Paquete Intereses - Percepción
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 1.239.281</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li data-category="deportes" data-subcategory="" data-info="Volumen: 5.269.576" onclick="selectItem(this)">
+                    Permutive - Mundial - Clarín - Paquete Intereses - Percepción
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 5.269.576</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+
+                <!--Viajes-->
+                <li data-category="Viajes" data-subcategory="" data-info="Volumen: 902.595" onclick="selectItem(this)">
+                    Permutive | Clarin | Content Taxonomy | Travel
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 902.595</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li data-category="Viajes" data-subcategory="" data-info="Volumen: 5.650.225" onclick="selectItem(this)">
+                    Permutive | Clarin | Audience Taxonomy | Interest | Travel
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 5.650.225</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li data-category="Viajes" data-subcategory="" data-info="Volumen: 601.563" onclick="selectItem(this)">
+                    Permutive - Viajes a Europa - Clarin - Paquete Intereses - Percepción
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 601.563</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+
+                 <!--Automoviles-->
+                 <li data-category="Automoviles" data-subcategory="" data-info="Volumen: 166.940" onclick="selectItem(this)">
+                    Permutive | Clarin | Content Taxonomy | Automotive
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 166.940</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li data-category="Automoviles" data-subcategory="" data-info="Volumen: 2.026.323" onclick="selectItem(this)">
+                    Permutive | Clarin | Audience Taxonomy | Interest | Automotive
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 2.026.323</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li data-category="Automoviles" data-subcategory="" data-info="Volumen: 5.047.656" onclick="selectItem(this)">
+                    Permutive - Camiones - Clarin - Paquete Intereses - Percepción
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 5.047.656</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li data-category="Automoviles" data-subcategory="" data-info="Volumen: 2.965.693" onclick="selectItem(this)">
+                    Permutive | Clarin | Audience Taxonomy | Interest | Automotive (LKL)
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 2.965.693</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li data-category="Automoviles" data-subcategory="" data-info="Volumen: 2.606.267" onclick="selectItem(this)">
+                    Permutive - Autos - Clarin - Paquete Interes - Percepción [Lookalike: 30.1% similarity, including seed]
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 2.606.267</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li data-category="Automoviles" data-subcategory="" data-info="Volumen: 3.300.000" onclick="selectItem(this)">
+                    Permutive | Autos de lujo | Clarin | Paquete de interés
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 3.300.000</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+
+                <!--Tecnologia y computacion-->
+                <li data-category="Tecnología" data-subcategory="" data-info="Volumen: 5.942" onclick="selectItem(this)">
+                    Permutive | Clarin | Content Taxonomy | Technology & Computing
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 5.942</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li data-category="Tecnología" data-subcategory="" data-info="Volumen: 2.390.587" onclick="selectItem(this)">
+                    Permutive | Clarin | Audience Taxonomy | Interest | Technology & Computing
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 2.390.587</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li data-category="Tecnología" data-subcategory="" data-info="Volumen: 1.500.000" onclick="selectItem(this)">
+                    Permutive | Clarin | Interest | Business and Finance | Telecommunications Industry
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 1.500.000</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li data-category="Tecnología" data-subcategory="" data-info="Volumen: 5.674.970" onclick="selectItem(this)">
+                    Permutive - Servicios del conocimiento- Clarin - Paquete Intereses - Percepción
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 5.674.970</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+
+                 <!--Familia-->
+                 <li data-category="Familia" data-subcategory="" data-info="Volumen: 8.453.506" onclick="selectItem(this)">
+                    Permutive | Clarin | Audience Taxonomy | Interest | Family and Relationships
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 8.453.506</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li data-category="Familia" data-subcategory="" data-info="Volumen: 1.142.503" onclick="selectItem(this)">
+                    Permutive | Clarin | Content Taxonomy | Family and Relationships
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 1.142.503</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li data-category="Familia" data-subcategory="" data-info="Volumen: 7.884.875" onclick="selectItem(this)">
+                    Permutive - Padres e hijos - Clarin - Paquete Intereses - Percepción
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 7.884.875</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+
+                <!--Food-->
+                <li data-category="Food" data-subcategory="" data-info="Volumen: 2.064.974" onclick="selectItem(this)">
+                    Permutive | Clarin | Content Taxonomy | Food & Drink
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 2.064.974</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li data-category="Food" data-subcategory="" data-info="Volumen: 6.202.814" onclick="selectItem(this)">
+                    Permutive | Clarin | Audience Taxonomy | Interest | Food & Drink
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 6.202.814</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li data-category="Food" data-subcategory="" data-info="Volumen: 789.647" onclick="selectItem(this)">
+                    Permutive - Bebidas alcohólicas - Clarin - Paquete Intereses - Percepción
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 789.647</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li data-category="Food" data-subcategory="" data-info="Volumen: 6.216.986" onclick="selectItem(this)">
+                    Permutive - Gastronomía - Clarin - Paquete Intereses - Percepción
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 6.216.986</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li data-category="Food" data-subcategory="" data-info="Volumen: 587.561" onclick="selectItem(this)">
+                    Permutive - Gastronomia argentina - Clarin - Paquete Intereses - Percepción
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 587.561</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li data-category="Food" data-subcategory="" data-info="Volumen: 508.979" onclick="selectItem(this)">
+                    Permutive - Gastronomia europea - Clarin - Paquete Intereses - Percepción
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 508.979</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+
+                <!--Estilo-Moda-->
+                <li data-category="Estilo-Moda" data-subcategory="" data-info="Volumen: 10.554.728" onclick="selectItem(this)">
+                    Permutive | Clarin | Audience Taxonomy | Interest | Style & Fashion | Beauty
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 10.554.728</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li data-category="Estilo-Moda" data-subcategory="" data-info="Volumen: 1.759.672" onclick="selectItem(this)">
+                    Permutive | Clarin | Audience Taxonomy | Interest | Style & Fashion
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 1.759.672</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li data-category="Estilo-Moda" data-subcategory="" data-info="Volumen: 25.812.495" onclick="selectItem(this)">
+                    Permutive - Tendencias (BULK) - Clarin - Paquete Intereses - Percepción
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 25.812.495</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+
+                <!--Arq-->
+                <li data-category="Arq" data-subcategory="" data-info="Volumen: 3.963.275" onclick="selectItem(this)">
+                    Permutive - Arquitectura (Sección) - Clarin - Paquete Intereses - Percepción
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 3.963.275</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li data-category="Arq" data-subcategory="" data-info="Volumen: 31.335.535" onclick="selectItem(this)">
+                    Permutive - Deco, Construcción  y Arquitectura (Bulk) + AU (Lifestyle aficiones) - Paquete intereses - Percepción
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 31.335.535</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li data-category="Arq" data-subcategory="" data-info="Volumen: 3.761.254" onclick="selectItem(this)">
+                    Permutive | Clarin | Audience Taxonomy | Interest | Home & Garden | Remodeling & Construction
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 3.761.254</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li data-category="Arq" data-subcategory="" data-info="Volumen: 6.468.910" onclick="selectItem(this)">
+                    Permutive - Deco&Construcción - Clarin - Paquete Intereses - Percepción [Lookalike: 44.5% similarity, including seed]
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 6.468.910</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li data-category="Arq" data-subcategory="" data-info="Volumen: 121.371" onclick="selectItem(this)">
+                    Permutive - Construcción y Arquitectura (Zona Norte) -  Clarin - Paquete Intereses - Percepción
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 121.371</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+
+                <!--Consumo-->
+                <li data-category="Consumo" data-subcategory="" data-info="Volumen: 23.222.094" onclick="selectItem(this)">
+                    Permutive | Clarin | Audience Taxonomy | Interest | Shopping
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 23.222.094</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li data-category="Consumo" data-subcategory="" data-info="Volumen: 170.183" onclick="selectItem(this)">
+                    Permutive | Clarin | Audience Taxonomy | Intención de compra | Consumer Packaged Goods | Candy
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 170.183</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li data-category="Consumo" data-subcategory="" data-info="Volumen: 294.602" onclick="selectItem(this)">
+                    Permutive | Clarin | Audience Taxonomy | Intención de compra | Consumer Packaged Goods | Coffee & Tea
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 294.602</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li data-category="Consumo" data-subcategory="" data-info="Volumen: 966.121" onclick="selectItem(this)">
+                    Permutive - Electrodomésticos y similares - Clarin - Paquete Intereses - Percepción
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 966.121</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li data-category="Consumo" data-subcategory="" data-info="Volumen: 4.900.000" onclick="selectItem(this)">
+                    Permutive | Consumos de lujo | Clarin | Paquete de interés
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 4.900.000</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li data-category="Consumo" data-subcategory="" data-info="Volumen: 1.000.000" onclick="selectItem(this)">
+                    Permutive | Billeteras virtuales | Clarin | Paquete de interés
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 1.000.000</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+
+                <!--Agro-->
+                <li data-category="Agro" data-subcategory="" data-info="Volumen: 10.280.485" onclick="selectItem(this)">
+                    Permutive | Clarin | Audience Taxonomny | Interest | Business and Finance | Agriculture
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 10.280.485</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li data-category="Agro" data-subcategory="" data-info="Volumen: 11.092.780" onclick="selectItem(this)">
+                    Permutive - Rural (BULK) - Clarin - Paquete Interes  [Lookalike: 52.1% similarity, including seed]
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 11.092.780</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li data-category="Agro" data-subcategory="" data-info="Volumen: 405.630" onclick="selectItem(this)">
+                    Permutive - Sector primario (Agro/Ganadería/Minería) - Clarin - Paquete Intereses - Percepción
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 405.630</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+
+                <!--Orden-->
+                <li data-category="Orden" data-subcategory="" data-info="Volumen: 9.578.588" onclick="selectItem(this)">
+                    Permutive - Seguridad - Clarin - Paquete Intereses - Percepción
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 9.578.588</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li data-category="Orden" data-subcategory="" data-info="Volumen: 461.059" onclick="selectItem(this)">
+                    Permutive - Clarin - Criminalistica y Criminología - Paquete de interés
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 461.059</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li data-category="Orden" data-subcategory="" data-info="Volumen: 1.544.143" onclick="selectItem(this)">
+                    Permutive - Policiales (Sección) - Clarin - Paquete Intereses - Percepción
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 1.544.143</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+
+                <!--Empleo-->
+                <li data-category="Empleo" data-subcategory="" data-info="Volumen: 7.294.410" onclick="selectItem(this)">
+                    Permutive - Trabajo infomal- Clarin - Paquete Intereses - Percepción
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 7.294.410</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li data-category="Empleo" data-subcategory="" data-info="Volumen: 3.842.868" onclick="selectItem(this)">
+                    Permutive - Homework y  Educación en línea - Clarin - Paquete intereses
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 3.842.868</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li data-category="Empleo" data-subcategory="" data-info="Volumen: 9.040.015" onclick="selectItem(this)">
+                    Permutive - Empleo y Mercado laboral - Clarin - Paquete Intereses - Percepción
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 9.040.015</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li data-category="Empleo" data-subcategory="" data-info="Volumen: 753.454" onclick="selectItem(this)">
+                    Permutive - Jubilados - Clarin - Paquete intereses
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 753.454</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+
+                 <!--Tipo de lector-->
+                 <li data-category="Tipo de lector" data-subcategory="" data-info="Volumen: 30.312.113" onclick="selectItem(this)">
+                    Permutive - Tipo de lector - Clarin - Paquete Premium - Anonimo
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 30.312.113</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li data-category="Tipo de lector" data-subcategory="" data-info="Volumen: 1.142.072" onclick="selectItem(this)">
+                    Permutive - Tipo de lector - Clarin - Paquete Premium - Loginwall
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 1.142.072</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li data-category="Tipo de lector" data-subcategory="" data-info="Volumen: 312.042" onclick="selectItem(this)">
+                    Permutive - Tipo de lector - Clarin - Paquete Premium - Paywall
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 312.042</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+
+                <!--Clima-->
+                <li data-category="Clima" data-subcategory="" data-info="Volumen: 2.526.632" onclick="selectItem(this)">
+                    Permutive - Ecología y Medio Ambiente - Clarin - Paquete Intereses - Percepción
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 2.526.632</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li data-category="Clima" data-subcategory="" data-info="Volumen: 2.332.030" onclick="selectItem(this)">
+                    Permutive - Clima - Clarin - Paquete Intereses - Percepción
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 2.332.030</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+
+
+               <!--Rubro-->
                 <li  data-subcategory="Tec" data-info="Volumen: 1.792.681" onclick="selectItem(this)">
                     Permutive | Clarin | Audience Taxonomy | Interest | Technology & Computing
                     <div class="info-content">
@@ -919,14 +1815,6 @@
                     <div class="info-content">
                         <div class="info-title">Información adicional</div>
                         <div class="info-description">Volumen: 4.765.987</div>
-                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
-                    </div>
-                </li>
-                <li  data-subcategory="Business-Finance" data-info="Volumen: 14.336.712" onclick="selectItem(this)">
-                    Permutive | Clarin | Audience Taxonomy | Interest | Business and Finance
-                    <div class="info-content">
-                        <div class="info-title">Información adicional</div>
-                        <div class="info-description">Volumen: 14.336.712</div>
                         <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
                     </div>
                 </li>
