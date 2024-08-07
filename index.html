@@ -5,645 +5,621 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Selector de Audiencias</title>
     <style>
-      body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #121212;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    color: #e0e0e0;
-}
-
-
-.container {
-    display: flex;
-    flex: 1;
-    width: 100%;
-    position: relative;
-    flex-direction: row; 
-}
-
-
-.sidebar {
-    width: 30%;
-    max-width: 400px; 
-    background-color: #1e1e1e;
-    padding: 20px;
-    box-shadow: 5px 0 15px rgba(0, 0, 0, 0.5);
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-
-.sidebar h1 {
-    font-size: 2em;
-    margin-bottom: 20px;
-    color: #ffffff;
-    font-family: 'Helvetica Neue', sans-serif;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-    white-space: nowrap;
-    text-shadow: 2px 2px 4px pink;
-}
-
-.sidebar h1::before,
-.sidebar h1::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    height: 3px;
-    width: 100%;
-    background: linear-gradient(70deg, blue, pink);
-    animation: animateLine 2s infinite;
-}
-
-.sidebar h1::before {
-    left: -100%;
-}
-
-.sidebar h1::after {
-    right: -100%;
-}
-
-@keyframes animateLine {
-    0% {
-        left: -100%;
-        right: 100%;
-    }
-    50% {
-        left: 100%;
-        right: -100%;
-    }
-    100% {
-        left: -100%;
-        right: 100%;
-    }
-}
-
-.sidebar h1 span {
-    display: inline-block;
-    animation: bounce 2s infinite;
-}
-
-@keyframes bounce {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-10px);
-    }
-}
-
-
-
-.search-container {
-    position: relative;
-    margin-bottom: 20px;
-}
-
-.search-container input[type="text"] {
-    width: 100%;
-    max-width: 300px;
-    padding: 10px;
-    padding-right: 30px;
-    font-size: 16px;
-    border: 1px solid #333;
-    border-radius: 5px;
-    background-color: #2a2a2a;
-    color: #e0e0e0;
-    margin-bottom: 10px;
-}
-
-.search-container .clear-button {
-    position: absolute;
-    right: 70px;
-    top: 40%;
-    transform: translateY(-50%);
-    color: #6200ea;
-    cursor: pointer;
-    font-size: 18px;
-    transition: color 0.3s;
-}
-
-.search-container .clear-button:hover {
-    color: #3700b3;
-}
-
-
-.category {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.category select {
-    width: 100%;
-    padding: 15px;
-    background-color: #333;
-    color: #e0e0e0;
-    border-radius: 8px;
-    border: none;
-    font-weight: bold;
-    transition: background-color 0.3s, transform 0.3s;
-    appearance: none;
-    cursor: pointer;
-}
-
-.category select:hover {
-    background-color: #555;
-    transform: scale(1.05);
-}
-
-
-.clear-filters-btn {
-    background-color: #2b2c90;
-    color: #ffffff;
-    border: none;
-    padding: 5px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s;
-    margin-top: 10px;
-    font-size: 16px;
-    font-weight: bold;
-    width: 50%;
-}
-
-.clear-filters-btn:hover {
-    background-color: #3738bc;
-    transform: scale(1.05);
-}
-
-
-.main {
-    width: 70%;
-    max-width: 1200px; 
-    padding: 20px;
-    position: relative;
-    background-color: #1e1e1e;
-    overflow-y: auto;
-    display: flex;
-    flex-direction: column;
-}
-
-
-ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-li {
-    background-color: #333;
-    margin: 10px 0;
-    padding: 15px;
-    border: 1px solid #444;
-    border-radius: 8px;
-    transition: background-color 0.3s, transform 0.3s;
-    cursor: pointer;
-}
-
-li:hover {
-    background-color: #444;
-    transform: scale(1.02);
-}
-
-
-.info {
-    position: fixed; 
-    top: 450px;      
-    left: 20px;      
-    max-width: 300px; 
-    padding: 15px;   
-    background-color: #2a2a2a; 
-    border: 1px solid #444;   
-    border-radius: 8px;        
-    display: none;            
-    z-index: 1000;            
-    overflow: hidden;         
-    box-sizing: border-box;  
-}
-
-.info-title {
-    font-weight: bold;
-    margin-bottom: 10px;
-    color: #ffffff;
-}
-
-.info-content {
-    color: #b0b0b0;
-}
-
-.info button {
-    background-color: #0033A0;
-    color: #ffffff;
-    border: none;
-    padding: 8px 18px;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
-    font-size: 12px;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.info button:hover {
-    background-color: #1e1e1e;
-    transform: scale(1.05);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-}
-
-.info button:focus {
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(0, 150, 136, 0.5);
-}
-
-.add-button {
-    background-color: #00c853;
-    color: #ffffff;
-    border: none;
-    padding: 12px 24px;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
-    font-size: 16px;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.add-button:hover {
-    background-color: #009624;
-    transform: scale(1.05);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-}
-
-.add-button:focus {
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(0, 150, 136, 0.5);
-}
-
-
-.recommendations {
-    position: fixed;
-    top: 550px;
-    left: 20px; 
-    max-width: 400px; 
-    max-height: 400px;
-    padding: 15px;
-    background-color: #2a2a2a;
-    border: 1px solid #444;
-    border-radius: 8px;
-    display: none; 
-    z-index: 1000; 
-    overflow-y: auto; 
-    overflow-x: hidden; 
-    box-sizing: border-box; 
-}
-
-.recommendations h2 {
-    color: #ffffff;
-    margin-bottom: 10px;
-}
-
-.recommendations ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.recommendations li {
-    background-color: #333;
-    margin: 5px 0;
-    padding: 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    color: #e0e0e0;
-}
-
-.recommendations li:hover {
-    background-color: #444;
-}
-
-
-.selected-items {
-    width: 300px;
-    max-width: 90%; 
-    background-color: #1e1e1e;
-    padding: 20px;
-    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
-    border-radius: 8px;
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    max-height: 70vh;
-    overflow-y: auto;
-    transform: translateX(100%);
-    transition: transform 0.3s ease;
-}
-
-.selected-items.open {
-    transform: translateX(0);
-}
-
-
-
-.selected-items h2 {
-    color: #ffffff;
-    margin-bottom: 10px;
-}
-
-.selected-items ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.selected-items li {
-    background-color: #333;
-    margin: 5px 0;
-    padding: 10px;
-    border-radius: 5px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: #e0e0e0;
-}
-
-.selected-items li button {
-    background: none;
-    border: none;
-    color: #ff0000;
-    cursor: pointer;
-}
-
-.selected-items li button:hover {
-    color: #cc0000;
-}
-
-
-.open-panel-btn {
-    background-image: url("1039954-Photoroom.png");
-    background-size: contain; 
-    background-position: center; 
-    background-repeat: no-repeat; 
-    border: none;
-    width: 50px; 
-    height: 50px; 
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s;
-    z-index: 100;
-    font-size: 0;
-    position: fixed; 
-    top: 20px;
-    right: 50px; 
-    background-color:rgba(0, 0, 0, 0.2) ;
-}
-
-
-.open-panel-btn:hover {
-    background-color: rgba(0, 0, 0, 0.2); 
-    transform: scale(1.05);
-}
-
-
-.notification {
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: #333;
-    color: #e0e0e0;
-    padding: 10px 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    opacity: 0;
-    transition: opacity 0.3s, bottom 0.3s;
-    z-index: 100;
-    pointer-events: none;
-}
-
-.notification.show {
-    display: block;
-    opacity: 1;
-    pointer-events: auto;
-}
-.submenu {
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #121212;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            color: #e0e0e0;
+        }
+
+        .container {
+            display: flex;
+            flex: 1;
+            width: 100%;
+            position: relative;
+            flex-direction: row;
+            z-index: 1;
+        }
+
+        .sidebar {
+            width: 30%;
+            max-width: 400px;
+            background-color: #1e1e1e;
+            padding: 20px;
+            box-shadow: 5px 0 15px rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .sidebar h1 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #ffffff;
+            font-family: 'Helvetica Neue', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            white-space: nowrap;
+            text-shadow: 2px 2px 4px pink;
+        }
+
+        .sidebar h1::before,
+        .sidebar h1::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            height: 3px;
+            width: 100%;
+            background: linear-gradient(70deg, blue, pink);
+            animation: animateLine 2s infinite;
+        }
+
+        .sidebar h1::before {
+            left: -100%;
+        }
+
+        .sidebar h1::after {
+            right: -100%;
+        }
+
+        @keyframes animateLine {
+            0% {
+                left: -100%;
+                right: 100%;
+            }
+            50% {
+                left: 100%;
+                right: -100%;
+            }
+            100% {
+                left: -100%;
+                right: 100%;
+            }
+        }
+
+        .sidebar h1 span {
+            display: inline-block;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .search-container {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .search-container input[type="text"] {
+            width: 100%;
+            max-width: 300px;
+            padding: 10px;
+            padding-right: 30px;
+            font-size: 16px;
+            border: 1px solid #333;
+            border-radius: 5px;
+            background-color: #2a2a2a;
+            color: #e0e0e0;
+            margin-bottom: 10px;
+        }
+
+        .search-container .clear-button {
+            position: absolute;
+            right: 70px;
+            top: 40%;
+            transform: translateY(-50%);
+            color: #6200ea;
+            cursor: pointer;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+
+        .search-container .clear-button:hover {
+            color: #3700b3;
+        }
+
+        .category {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .category select {
+            width: 100%;
+            padding: 15px;
+            background-color: #333;
+            color: #e0e0e0;
+            border-radius: 8px;
+            border: none;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.3s;
+            appearance: none;
+            cursor: pointer;
+        }
+
+        .category select:hover {
+            background-color: #555;
+            transform: scale(1.05);
+        }
+
+        .clear-filters-btn {
+            background-color: #2b2c90;
+            color: #ffffff;
+            border: none;
+            padding: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            margin-top: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            width: 50%;
+        }
+
+        .clear-filters-btn:hover {
+            background-color: #3738bc;
+            transform: scale(1.05);
+        }
+
+        .main {
+            width: 70%;
+            max-width: 1200px;
+            padding: 20px;
+            position: relative;
+            background-color: #1e1e1e;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            z-index: 1;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            background-color: #333;
+            margin: 10px 0;
+            padding: 15px;
+            border: 1px solid #444;
+            border-radius: 8px;
+            transition: background-color 0.3s, transform 0.3s;
+            cursor: pointer;
+            position: relative;
+        }
+
+        li:hover {
+            background-color: #444;
+            transform: scale(1.02);
+        }
+
+        .info-content {
+            display: none;
+            background-color: #2a2a2a;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+
+        li.open .info-content {
+            display: block;
+        }
+
+        .info-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+
+        .info-content .info-description {
+            color: #b0b0b0;
+        }
+
+        .info-content button {
+            background-color: #0033A0;
+            color: #ffffff;
+            border: none;
+            padding: 8px 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+            font-size: 12px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 4;
+        }
+
+        .info-content button:hover {
+            background-color: #1e1e1e;
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .info-content button:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(0, 150, 136, 0.5);
+        }
+
+        .add-button {
+            background-color: #00c853;
+            color: #ffffff;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+            font-size: 16px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .add-button:hover {
+            background-color: #009624;
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .add-button:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(0, 150, 136, 0.5);
+        }
+
+        .recommendations {
+            position: fixed;
+            top: 550px;
+            left: 20px;
+            max-width: 400px;
+            max-height: 400px;
+            padding: 15px;
+            background-color: #2a2a2a;
+            border: 1px solid #444;
+            border-radius: 8px;
+            display: none;
+            z-index: 1000;
+            overflow-y: auto;
+            overflow-x: hidden;
+            box-sizing: border-box;
+        }
+
+        .recommendations h2 {
+            color: #ffffff;
+            margin-bottom: 10px;
+        }
+
+        .recommendations ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .recommendations li {
+            background-color: #333;
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            color: #e0e0e0;
+        }
+
+        .recommendations li:hover {
+            background-color: #444;
+        }
+
+        .selected-items {
+            width: 300px;
+            max-width: 90%;
+            background-color: #1e1e1e;
+            padding: 20px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+            border-radius: 8px;
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            max-height: 70vh;
+            overflow-y: auto;
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .selected-items.open {
+            transform: translateX(0);
+        }
+
+        .selected-items h2 {
+            color: #ffffff;
+            margin-bottom: 10px;
+        }
+
+        .selected-items ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .selected-items li {
+            background-color: #333;
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #e0e0e0;
+        }
+
+        .selected-items li button {
+            background: none;
+            border: none;
+            color: #ff0000;
+            cursor: pointer;
+        }
+
+        .selected-items li button:hover {
+            color: #cc0000;
+        }
+
+        .open-panel-btn {
+            background-image: url("1039954-Photoroom.png");
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            z-index: 100;
+            font-size: 0;
+            position: fixed;
+            top: 20px;
+            right: 50px;
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+
+        .open-panel-btn:hover {
+            background-color: rgba(0, 0, 0, 0.2);
+            transform: scale(1.05);
+        }
+
+        .notification {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #333;
+            color: #e0e0e0;
+            padding: 10px 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            transition: opacity 0.3s, bottom 0.3s;
+            z-index: 100;
+            pointer-events: none;
+        }
+
+        .notification.show {
+            display: block;
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .submenu {
             display: none;
             margin-left: 20px;
         }
 
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
 
-@media (max-width: 768px) {
-    .container {
-        flex-direction: column;
-    }
+            .sidebar {
+                width: 100%;
+                max-width: none;
+                padding: 10px;
+                box-shadow: none;
+                margin-bottom: 20px;
+            }
 
-    .sidebar {
-        width: 100%;
-        max-width: none;
-        padding: 10px;
-        box-shadow: none;
-        margin-bottom: 20px;
-    }
+            .main {
+                width: calc(100% - 40px);
+                max-width: none;
+                padding: 10px;
+            }
 
-    .main {
-        width: calc(100% - 40px); 
-        max-width: none;
-        padding: 10px;
-    }
+            .selected-items {
+                width: calc(100% - 40px);
+                right: 0;
+                top: 0;
+                max-width: none;
+                box-shadow: none;
+                border-radius: 0;
+            }
 
-    .selected-items {
-        width: calc(100% - 40px); 
-        right: 0;
-        top: 0;
-        max-width: none;
-        box-shadow: none;
-        border-radius: 0;
-    }
+            .open-panel-btn {
+                top: 10px;
+                right: 10px;
+                padding: 8px 16px;
+                font-size: 14px;
+            }
 
-    .open-panel-btn {
-        top: 10px;
-        right: 10px;
-        padding: 8px 16px;
-        font-size: 14px;
-    }
+            .search-container input[type="text"] {
+                width: calc(100% - 40px);
+                font-size: 14px;
+                padding: 8px;
+            }
 
-    .search-container input[type="text"] {
-        width: calc(100% - 40px); 
-        font-size: 14px;
-        padding: 8px;
-    }
+            .search-container .clear-button {
+                right: 10px;
+                font-size: 16px;
+            }
 
-    .search-container .clear-button {
-        right: 10px;
-        font-size: 16px;
-    }
+            .category select {
+                padding: 10px;
+                font-size: 14px;
+                width: calc(100% - 30px);
+            }
 
-    .category select {
-        padding: 10px;
-        font-size: 14px;
-        width: calc(100% - 30px); 
-    }
+            .clear-filters-btn {
+                font-size: 14px;
+                padding: 8px;
+                width: calc(100% - 550px);
+            }
 
-    .clear-filters-btn {
-        font-size: 14px;
-        padding: 8px;
-        width: calc(100% - 550px); 
-    }
+            .info-content button,
+            .add-button {
+                font-size: 14px;
+                padding: 8px 16px;
+            }
 
-    .info button,
-    .add-button {
-        font-size: 14px;
-        padding: 8px 16px;
-    }
+            .recommendations {
+                max-width: 100%;
+                left: 0;
+                bottom: 10px;
+            }
 
-    .recommendations {
-        max-width: 100%;
-        left: 0;
-        bottom: 10px;
-    }
+            .recommendations ul {
+                max-height: 200px;
+                overflow-y: auto;
+            }
+        }
 
-    .recommendations ul {
-        max-height: 200px; 
-        overflow-y: auto;
-    }
-}
+        @media (max-width: 480px) {
+            .search-container input[type="text"] {
+                width: calc(100% - 40px);
+                font-size: 12px;
+                padding: 6px;
+            }
 
+            .search-container .clear-button {
+                font-size: 12px;
+                right: 10px;
+            }
 
-@media (max-width: 480px) {
-    .search-container input[type="text"] {
-        width: calc(100% - 40px); 
-        font-size: 12px;
-        padding: 6px;
-        
-    }
+            .category select {
+                width: calc(100% - 20px);
+                padding: 8px;
+                font-size: 12px;
+            }
 
-    .search-container .clear-button {
-        font-size: 12px;
-        right: 10px;
-    }
+            .clear-filters-btn {
+                font-size: 12px;
+                padding: 6px;
+                width: calc(100% - 300px);
+            }
 
-    .category select {
-        width: calc(100% - 20px);
-        padding: 8px;
-        font-size: 12px;
-    }
+            .info-content button,
+            .add-button {
+                font-size: 12px;
+                padding: 6px 12px;
+            }
 
-    .clear-filters-btn {
-        font-size: 12px;
-        padding: 6px;
-        width: calc(100% - 300px); 
-    }
+            .open-panel-btn {
+                width: calc(100% - 400px);
+                height: 40px;
+                top: 10px;
+                right: 30px;
+            }
 
-    .info button,
-    .add-button {
-        font-size: 12px;
-        padding: 6px 12px;
-    }
+            .recommendations {
+                width: calc(100% - 38px);
+                bottom: -250px;
+                padding: 10px;
+                position: absolute;
+                max-width: 100%;
+                left: 5px;
+                right: 10px;
+            }
 
-    .open-panel-btn {
-        width: calc(100% - 400px);
-        height: 40px; 
-        top: 10px; 
-        right: 30px; 
-    }
+            .recommendations ul {
+                max-height: 150px;
+                overflow-y: auto;
+                margin: 0;
+                padding: 0;
+            }
 
-    .recommendations {
-        width: calc(100% - 38px);
-        bottom: -250px;
-        padding: 10px;
-        position: absolute;
-        max-width: 100%;
-        left: 5px; 
-        right: 10px; 
-    }
+            .notification {
+                position: fixed;
+                top: 10px;
+                left: 50%;
+                transform: translateX(-50%);
+                background-color: #333;
+                color: #e0e0e0;
+                padding: 8px 16px;
+                border-radius: 8px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+                opacity: 0;
+                transition: opacity 0.3s, top 0.3s;
+                z-index: 100;
+                width: auto;
+                max-width: 90%;
+                text-align: center;
+                box-sizing: border-box;
+                height: 5%;
+            }
 
-    .recommendations ul {
-        max-height: 150px;
-        overflow-y: auto;
-        margin: 0;
-        padding: 0;
-    }
+            .notification.show {
+                opacity: 1;
+                top: 10px;
+            }
 
-    .notification {
-        position: fixed;
-        top: 10px;
-        left: 50%;
-        transform: translateX(-50%);
-        background-color: #333;
-        color: #e0e0e0;
-        padding: 8px 16px;
-        border-radius: 8px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-        opacity: 0;
-        transition: opacity 0.3s, top 0.3s;
-        z-index: 100;
-        width: auto; 
-        max-width: 90%;
-        text-align: center; 
-        box-sizing: border-box; 
-        height: 5%;
-    }
+            .selected-items {
+                width: calc(100% - 70px);
+                max-width: none;
+                right: 20px;
+                top: 20px;
+                box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+                border-radius: 8px;
+                overflow-y: auto;
+            }
 
-    .notification.show {
-        
-        opacity: 1;
-        top: 10px; 
-    }
+            .selected-items ul {
+                padding: 0;
+                margin: 0;
+            }
 
-    
-    .selected-items {
-        width: calc(100% - 70px); 
-        max-width: none;
-        right: 20px;
-        top: 20px;
-        box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
-        border-radius: 8px;
-        overflow-y: auto; 
-    }
+            .selected-items li {
+                font-size: 12px;
+                padding: 8px;
+            }
 
-    .selected-items ul {
-        padding: 0;
-        margin: 0;
-        
-    }
+            .main {
+                width: calc(100% - 20px);
+                padding: 8px;
+                font-size: 12px;
+            }
 
-    .selected-items li {
-        font-size: 12px; 
-        padding: 8px; 
-    }
+            .clear-button {
+                margin-right: 120px;
+                margin-top: -5px;
+            }
+        }
 
-    .main {
-        width: calc(100% - 20px);
-        padding: 8px;
-        font-size: 12px;
-    }
-    .clear-button {
-       margin-right: 120px;
-       margin-top: -5px;
-    }
-}
-
-.selected {
-    
-    color: #565555;
-    }
-
-
-
-
-
+        .selected {
+            color: #565555;
+        }
     </style>
 </head>
 <body>
@@ -659,8 +635,7 @@ li:hover {
             <div class="category">
                 <select id="categorySelect" onchange="filterByCategoryAndSubcategory()">
                     <option value="all">Por categoría</option>
-                    <option value="Demographic-age">Demográficas(edad)</option>
-                    <option value="Demographic-gender">Demográficas(sexo)</option>
+                    <option value="Demographic">Demográficas</option>
                     <option value="Geolocalizacion">Geolocalizadas</option>
                     <option value="Salud-bienestar">Salud y Bienestar</option>
                     <option value="Negocios">Negocios</option>
@@ -683,8 +658,15 @@ li:hover {
                     <option value="Empleo">Empleo</option>
                     <option value="Tipo de lector">Tipo de lector</option>
                 </select>
+                <div id="demograficasSubmenu" class="submenu">
+                    <select id="demograficasSubcategorySelect" onchange="filterByCategoryAndSubcategory()">
+                        <option value="all">Todas</option>
+                        <option value="Demographic-Age">Edad</option>
+                        <option value="Demographic-Gender">Sexo</option>
+                    </select>
+                </div>
                 <div id="geolocalizacionSubmenu" class="submenu">
-                    <select id="geolocalizacionSelect" onchange="filterByCategoryAndSubcategory()">
+                    <select id="geolocalizacionSubcategorySelect" onchange="filterByCategoryAndSubcategory()">
                         <option value="all">Todas</option>
                         <option value="Geolocalizacion-provincias">Provincias</option>
                         <option value="Geolocalizacion-partidos">Partidos</option>
@@ -725,72 +707,374 @@ li:hover {
         </div>
         <div class="main">
             <ul id="itemList">
-                <li data-category="Demographic-age" data-subcategory="Demographic-Age" data-info="Volumen: 100.659" onclick="selectItem(this)">Permutive | Clarin | Audience Taxonomy | Demographic | Age Range (by login) | 18-20</li>
-                <li data-category="Demographic-age" data-subcategory="Demographic-Age" data-info="Volumen: 72.538" onclick="selectItem(this)">Permutive | Clarin | Audience Taxonomy | Demographic | Age Range (by login) | 21-24</li>
-                <li data-category="Demographic-age" data-subcategory="Demographic-Age" data-info="Volumen: 177.625" onclick="selectItem(this)">Permutive | Clarin | Audience Taxonomy | Demographic | Age Range (by login) | 25-29</li>
-                <li data-category="Demographic-age" data-subcategory="Demographic-Age" data-info="Volumen: 86.086" onclick="selectItem(this)">Permutive | Clarin | Audience Taxonomy | Demographic | Age Range (by login) | 30-34</li>
-                <li data-category="Demographic-age" data-subcategory="Demographic-Age" data-info="Volumen: 104.258" onclick="selectItem(this)">Permutive | Clarin | Audience Taxonomy | Demographic | Age Range (by login) | 35-39</li>
-                <li data-category="Demographic-age" data-subcategory="Demographic-Age" data-info="Volumen: 232.216" onclick="selectItem(this)">Permutive | Clarin | Audience Taxonomy | Demographic | Age Range (by login) | 40-44</li>
-                <li data-category="Demographic-age" data-subcategory="Demographic-Age" data-info="Volumen: 156.977" onclick="selectItem(this)">Permutive | Clarin | Audience Taxonomy | Demographic | Age Range (by login) | 45-49</li>
-                <li data-category="Demographic-age" data-subcategory="Demographic-Age" data-info="Volumen: 236.073" onclick="selectItem(this)">Permutive | Clarin | Audience Taxonomy | Demographic | Age Range (by login) | 50-54</li>
-                <li data-category="Demographic-age" data-subcategory="Demographic-Age" data-info="Volumen: 232.393" onclick="selectItem(this)">Permutive | Clarin | Audience Taxonomy | Demographic | Age Range (by login) | 55-59</li>
-                <li data-category="Demographic-age" data-subcategory="Demographic-Age" data-info="Volumen: 214.605" onclick="selectItem(this)">Permutive | Clarin | Audience Taxonomy | Demographic | Age Range (by login) | 60-64</li>
-                <li data-category="Demographic-age" data-subcategory="Demographic-Age" data-info="Volumen: 223.377" onclick="selectItem(this)">Permutive | Clarin | Audience Taxonomy | Demographic | Age Range (by login) | 65-69</li>
-                <li data-category="Demographic-age" data-subcategory="Demographic-Age" data-info="Volumen: 399.473" onclick="selectItem(this)">Permutive | Clarin | Audience Taxonomy | Demographic | Age Range (by login) | 70-74</li>
-                <li data-category="Demographic-age" data-subcategory="Demographic-Age" data-info="Volumen: 135.769" onclick="selectItem(this)">Permutive | Clarin | Audience Taxonomy | Demographic | Age Range (by login) | 75+</li>
-                <li data-category="Demographic-gender" data-subcategory="Demographic-Gender" data-info="Volumen: 721.261" onclick="selectItem(this)">Permutive | Clarin | Audience Taxonomy | Demographic | Gender | Female</li>
-                <li data-category="Demographic-gender" data-subcategory="Demographic-Gender" data-info="Volumen: 867.325" onclick="selectItem(this)">Permutive | Clarin | Audience Taxonomy | Demographic | Gender | Male</li>
-                <li data-category="Geolocalizacion" data-subcategory="" data-info="Volumen: 5000" onclick="selectItem(this)">Permutive - Localidad - Martinez - Buenos Aires - Clarin</li>
-                <li data-category="Geolocalizacion" data-subcategory="" data-info="Volumen: 7000" onclick="selectItem(this)">Permutive - Localidad - Quilmes Oeste - Buenos Aires - Clarin</li>
-                <li data-category="Salud-bienestar" data-subcategory="" data-info="Volumen: 622.770" onclick="selectItem(this)">Permutive | Clarin | Content Taxonomy | Healthy Living</li>
-                <li data-category="Salud-bienestar" data-subcategory="" data-info="Volumen: 8.156.614" onclick="selectItem(this)">Permutive | Clarin | Audience Taxonomy | Interest | Healthy Living</li>
-                <li data-category="Salud-bienestar" data-subcategory="" data-info="Volumen: 13.772.257" onclick="selectItem(this)">Permutive | Clarin | Audience Taxonomy | Interest | Health and Medical Services</li>
-                <li data-category="Salud-bienestar" data-subcategory="" data-info="Volumen: 791.759" onclick="selectItem(this)">Permutive | Clarin | Content Taxonomy | Medical Health</li>
-                <li data-category="Salud-bienestar" data-subcategory="" data-info="Volumen: 6.811.027" onclick="selectItem(this)">Permutive | Clarin | Audience Taxonomy | Interest | Medical Health</li>
-                <li data-category="Negocios" data-subcategory="Business-Finance" data-info="Volumen: 15000" onclick="selectItem(this)">Permutive | Clarin | Audience Taxonomy | Interest | Business and Finance</li>
+                <li data-category="Demographic" data-subcategory="Demographic-Age" data-info="Volumen: 100.659" onclick="selectItem(this)">
+                    Permutive | Clarin | Audience Taxonomy | Demographic | Age Range (by login) | 18-20
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 100.659</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li data-category="Demographic" data-subcategory="Demographic-Age" data-info="Volumen: 72.538" onclick="selectItem(this)">
+                    Permutive | Clarin | Audience Taxonomy | Demographic | Age Range (by login) | 21-24
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 72.538</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li data-category="Demographic" data-subcategory="Demographic-Age" data-info="Volumen: 177.625" onclick="selectItem(this)">
+                    Permutive | Clarin | Audience Taxonomy | Demographic | Age Range (by login) | 25-29
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 177.625</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li data-category="Demographic" data-subcategory="Demographic-Age" data-info="Volumen: 86.086" onclick="selectItem(this)">
+                    Permutive | Clarin | Audience Taxonomy | Demographic | Age Range (by login) | 30-34
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 86.086</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li data-category="Demographic" data-subcategory="Demographic-Age" data-info="Volumen: 104.258" onclick="selectItem(this)">
+                    Permutive | Clarin | Audience Taxonomy | Demographic | Age Range (by login) | 35-39
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 104.258</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li data-category="Demographic" data-subcategory="" data-info="Volumen: 232.216" onclick="selectItem(this)">
+                    Permutive | Clarin | Audience Taxonomy | Demographic | Age Range (by login) | 40-44
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 232.216</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li data-category="Demographic" data-subcategory="" data-info="Volumen: 156.977" onclick="selectItem(this)">
+                    Permutive | Clarin | Audience Taxonomy | Demographic | Age Range (by login) | 45-49
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 156.977</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li data-category="Demographic" data-subcategory="" data-info="Volumen: 236.073" onclick="selectItem(this)">
+                    Permutive | Clarin | Audience Taxonomy | Demographic | Age Range (by login) | 50-54
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 236.073</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li data-category="Demographic" data-subcategory="" data-info="Volumen: 232.393" onclick="selectItem(this)">
+                    Permutive | Clarin | Audience Taxonomy | Demographic | Age Range (by login) | 55-59
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 232.393</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li data-category="Demographic" data-subcategory="" data-info="Volumen: 214.605" onclick="selectItem(this)">
+                    Permutive | Clarin | Audience Taxonomy | Demographic | Age Range (by login) | 60-64
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 214.605</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li data-category="Demographic" data-subcategory="" data-info="Volumen: 223.377" onclick="selectItem(this)">
+                    Permutive | Clarin | Audience Taxonomy | Demographic | Age Range (by login) | 65-69
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 223.377</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li data-category="Demographic" data-subcategory="" data-info="Volumen: 399.473" onclick="selectItem(this)">
+                    Permutive | Clarin | Audience Taxonomy | Demographic | Age Range (by login) | 70-74
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 399.473</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li data-category="Demographic" data-subcategory="" data-info="Volumen: 135.769" onclick="selectItem(this)">
+                    Permutive | Clarin | Audience Taxonomy | Demographic | Age Range (by login) | 75+
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 135.769</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li data-category="Demographic" data-subcategory="" data-info="Volumen: 721.261" onclick="selectItem(this)">
+                    Permutive | Clarin | Audience Taxonomy | Demographic | Gender | Female
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 721.261</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li data-category="Demographic" data-subcategory="" data-info="Volumen: 867.325" onclick="selectItem(this)">
+                    Permutive | Clarin | Audience Taxonomy | Demographic | Gender | Male
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 867.325</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li data-category="Geolocalizacion" data-subcategory="" data-info="Volumen: 5000" onclick="selectItem(this)">
+                    Permutive - Localidad - Martinez - Buenos Aires - Clarin
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 5000</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li data-category="Geolocalizacion" data-subcategory="" data-info="Volumen: 7000" onclick="selectItem(this)">
+                    Permutive - Localidad - Quilmes Oeste - Buenos Aires - Clarin
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 7000</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li data-category="Salud-bienestar" data-subcategory="" data-info="Volumen: 622.770" onclick="selectItem(this)">
+                    Permutive | Clarin | Content Taxonomy | Healthy Living
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 622.770</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li data-category="Salud-bienestar" data-subcategory="" data-info="Volumen: 8.156.614" onclick="selectItem(this)">
+                    Permutive | Clarin | Audience Taxonomy | Interest | Healthy Living
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 8.156.614</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li data-category="Salud-bienestar" data-subcategory="" data-info="Volumen: 13.772.257" onclick="selectItem(this)">
+                    Permutive | Clarin | Audience Taxonomy | Interest | Health and Medical Services
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 13.772.257</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li data-category="Salud-bienestar" data-subcategory="" data-info="Volumen: 791.759" onclick="selectItem(this)">
+                    Permutive | Clarin | Content Taxonomy | Medical Health
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 791.759</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li data-category="Salud-bienestar" data-subcategory="" data-info="Volumen: 6.811.027" onclick="selectItem(this)">
+                    Permutive | Clarin | Audience Taxonomy | Interest | Medical Health
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 6.811.027</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li data-category="Negocios" data-subcategory="Business-Finance" data-info="Volumen: 15000" onclick="selectItem(this)">
+                    Permutive | Clarin | Audience Taxonomy | Interest | Business and Finance
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 15000</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
                 
-                <li data-category="Negocios" data-subcategory="Business-Industries" data-info="Volumen: 20000" onclick="selectItem(this)">Permutive | Clarin | Audience Taxonomy | Interest | Business and Finance | Industries</li>
-                <li  data-subcategory="Tec" data-info="Volumen: 1792681" onclick="selectItem(this)">Permutive | Clarin | Audience Taxonomy | Interest | Technology & Computing</li>
-                <li  data-subcategory="Salud" data-info="Volumen: 9630880" onclick="selectItem(this)">Permutive | Clarin | Audience Taxonomy | Interest | Health and Medical Services</li>
-                <li  data-subcategory="Educ-form" data-info="Volumen: 4765987 " onclick="selectItem(this)">Permutive | Clarin | Audience Taxonomy | Interest | Education</li>
-                <li  data-subcategory="Business-Finance" data-info="Volumen: 14336712" onclick="selectItem(this)">Permutive | Clarin | Audience Taxonomy | Interest | Business and Finance</li>
-                <li  data-subcategory="Viajes-turismo" data-info="Volumen: 4983738" onclick="selectItem(this)">Permutive | Clarin | Audience Taxonomy | Interest | Travel</li>
-                <li  data-subcategory="Belleza" data-info="Volumen: 7876904" onclick="selectItem(this)">Permutive | Clarin | Audience Taxonomy | Interest | Style & Fashion | Beauty</li>
-                <li  data-subcategory="Moda" data-info="Volumen: 1530347" onclick="selectItem(this)">Permutive | Clarin | Audience Taxonomy | Interest | Style & Fashion</li>
-                <li  data-subcategory="Alimentacion-bebidas" data-info="Volumen: 4862114" onclick="selectItem(this)">Permutive | Clarin | Audience Taxonomy | Interest | Food & Drink</li>
-                <li  data-subcategory="Hogar-jardin" data-info="Volumen: 898322" onclick="selectItem(this)">Permutive | Clarin | Audience Taxonomy | Interest | Home and Garden</li>
-                <li  data-subcategory="Entretenimiento" data-info="Volumen: 9796904" onclick="selectItem(this)">Permutive | Clarin | Audience Taxonomy | Interest | Hobbies & Interests</li>
-                <li  data-subcategory="Automotriz" data-info="Volumen: 2430234" onclick="selectItem(this)">Permutive | Clarin | Audience Taxonomy | Interest | Automotive (LKL)</li>
-                <li  data-subcategory="Deportes-aficiones" data-info="Volumen: 7032582" onclick="selectItem(this)">Permutive | Clarin | Audience Taxonomy | Interest | Sports</li>
-                <li  data-subcategory="Eventos-actividades" data-info="Volumen: 994998" onclick="selectItem(this)">Permutive | Clarin | Content Taxonomy | Events and Attractions</li>
-                <li  data-subcategory="Mercado-inmobiliario" data-info="Volumen: 9861775" onclick="selectItem(this)">Permutive | Clarin | Audience Taxonomy | Interest | Real Estate</li>
-                <li  data-subcategory="Agro" data-info="Volumen: 10171955" onclick="selectItem(this)">Permutive | Clarin | Interest | Business and Finance | Agriculture</li>
-                <li  data-subcategory="Supermercados" data-info="Volumen: 17801145" onclick="selectItem(this)">Permutive | Clarin | Audience Taxonomy | Interest | Shopping</li>
-                <li  data-subcategory="Construcción-Decoración" data-info="Volumen: 3370062" onclick="selectItem(this)">"Permutive | Clarin | Interest | Home & Garden | Remodeling & Construction"</li>
-                <li  data-subcategory="Medios de comunicación" data-info="Volumen: 637147" onclick="selectItem(this)">Permutive | Clarin | Interest | Business and Finance | Media Industry</li>
-                <li  data-subcategory="Telecomunicaciones" data-info="Volumen: 238244" onclick="selectItem(this)">Permutive | Clarin | Interest | Business and Finance | Telecommunications Industry </li>
+                <li data-category="Negocios" data-subcategory="Business-Industries" data-info="Volumen: 20000" onclick="selectItem(this)">
+                    Permutive | Clarin | Audience Taxonomy | Interest | Business and Finance | Industries
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 20.000</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li  data-subcategory="Tec" data-info="Volumen: 1.792.681" onclick="selectItem(this)">
+                    Permutive | Clarin | Audience Taxonomy | Interest | Technology & Computing
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 1.792.681</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div></li>
+                <li  data-subcategory="Salud" data-info="Volumen: 9.630.880" onclick="selectItem(this)">
+                    Permutive | Clarin | Audience Taxonomy | Interest | Health and Medical Services
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 9.630.880</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div></li>
+                <li  data-subcategory="Educ-form" data-info="Volumen: 4.765.987 " onclick="selectItem(this)">
+                    Permutive | Clarin | Audience Taxonomy | Interest | Education
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 4.765.987</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li  data-subcategory="Business-Finance" data-info="Volumen: 14.336.712" onclick="selectItem(this)">
+                    Permutive | Clarin | Audience Taxonomy | Interest | Business and Finance
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 14.336.712</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li  data-subcategory="Viajes-turismo" data-info="Volumen: 4.983.738" onclick="selectItem(this)">
+                    Permutive | Clarin | Audience Taxonomy | Interest | Travel
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 4.983.738</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li  data-subcategory="Belleza" data-info="Volumen: 7.876.904" onclick="selectItem(this)">
+                    Permutive | Clarin | Audience Taxonomy | Interest | Style & Fashion | Beauty
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 7.876.904</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li  data-subcategory="Moda" data-info="Volumen: 1.530.347" onclick="selectItem(this)">
+                    Permutive | Clarin | Audience Taxonomy | Interest | Style & Fashion
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 1.530.347</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li  data-subcategory="Alimentacion-bebidas" data-info="Volumen: 4.862.114" onclick="selectItem(this)">
+                    Permutive | Clarin | Audience Taxonomy | Interest | Food & Drink
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 4.862.114</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li  data-subcategory="Hogar-jardin" data-info="Volumen: 898.322" onclick="selectItem(this)">
+                    Permutive | Clarin | Audience Taxonomy | Interest | Home and Garden
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 898.322</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li  data-subcategory="Entretenimiento" data-info="Volumen: 9.796.904" onclick="selectItem(this)">
+                    Permutive | Clarin | Audience Taxonomy | Interest | Hobbies & Interests
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 9.796.904</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li  data-subcategory="Automotriz" data-info="Volumen: 2.430.234" onclick="selectItem(this)">
+                    Permutive | Clarin | Audience Taxonomy | Interest | Automotive (LKL)
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 2.430.234</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li  data-subcategory="Deportes-aficiones" data-info="Volumen: 7.032.582" onclick="selectItem(this)">
+                    Permutive | Clarin | Audience Taxonomy | Interest | Sports
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 7.032.582</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li  data-subcategory="Eventos-actividades" data-info="Volumen: 994.998" onclick="selectItem(this)">
+                    Permutive | Clarin | Content Taxonomy | Events and Attractions
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 994.998</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li  data-subcategory="Mercado-inmobiliario" data-info="Volumen: 9.861.775" onclick="selectItem(this)">
+                    Permutive | Clarin | Audience Taxonomy | Interest | Real Estate
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 9.861.775</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li  data-subcategory="Agro" data-info="Volumen: 10.171.955" onclick="selectItem(this)">
+                    Permutive | Clarin | Interest | Business and Finance | Agriculture
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 10.171.955</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li  data-subcategory="Supermercados" data-info="Volumen: 17.801.145" onclick="selectItem(this)">
+                    Permutive | Clarin | Audience Taxonomy | Interest | Shopping
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 17.801.145</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li  data-subcategory="Construcción-Decoración" data-info="Volumen: 3.370.062" onclick="selectItem(this)">
+                    Permutive | Clarin | Interest | Home & Garden | Remodeling & Construction
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 3.370.062</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li  data-subcategory="Medios de comunicación" data-info="Volumen: 637.147" onclick="selectItem(this)">
+                    Permutive | Clarin | Interest | Business and Finance | Media Industry
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 637.147</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                </li>
+                <li  data-subcategory="Telecomunicaciones" data-info="Volumen: 238.244" onclick="selectItem(this)">
+                    Permutive | Clarin | Interest | Business and Finance | Telecommunications Industry
+                    <div class="info-content">
+                        <div class="info-title">Información adicional</div>
+                        <div class="info-description">Volumen: 238.244</div>
+                        <button onclick="addToSelectedItems(this)">Agregar audiencia</button>
+                    </div>
+                 </li>
 
             </ul>
             
-            <div class="info" id="info">
-                <div class="info-title" id="infoTitle"></div>
-                <div class="info-content" id="infoContent"></div>
-                <button onclick="addToSelectedItems()">Agregar audiencia</button>
+            <div class="selected-items" id="selectedItems">
+       
+                <h2>Audiencias Seleccionadas</h2>
+                <ul id="selectedItemList">
+                    
+                </ul>
+                <div id="totalVolume">
+                    <strong>Volumen Total:</strong> <span id="volumeTotal">0</span>
+                </div>
             </div>
-            
+            <button class="open-panel-btn" id="openPanelBtn" onclick="toggleSelectedItems()"></button>
+            <div class="notification" id="notification">¡Audiencia agregada al carrito!</div>
         </div>
     </div>
     <div class="selected-items" id="selectedItems">
-       
         <h2>Audiencias Seleccionadas</h2>
-        <ul id="selectedItemList">
-            
-        </ul>
+        <ul id="selectedItemList"></ul>
         <div id="totalVolume">
             <strong>Volumen Total:</strong> <span id="volumeTotal">0</span>
         </div>
     </div>
-    <button class="open-panel-btn" id="openPanelBtn" onclick="toggleSelectedItems()"></button>
+    <button class="open-panel-btn" id="openPanelBtn" onclick="toggleSelectedItems()">Cart</button>
     <div class="notification" id="notification">¡Audiencia agregada al carrito!</div>
     
     <script>
@@ -805,51 +1089,50 @@ li:hover {
         };
 
         function selectItem(element) {
-            let title = element.innerText;
-            let info = element.getAttribute("data-info");
-            let volume = parseFloat(info.match(/Volumen: ([\d.]+)/)[1].replace('.', ''));
-            let category = element.getAttribute("data-category");
-            let infoElement = document.getElementById("info");
-            document.getElementById("infoTitle").innerText = title;
-            document.getElementById("infoContent").innerText = info;
-            infoElement.style.display = "block";
-            if (category === "Negocios") {
-                let recommendationList = document.getElementById("recommendationList");
-                recommendationList.innerHTML = "";
-                recommendations["Negocios"].forEach(rec => {
-                    let li = document.createElement("li");
-                    li.innerText = rec;
-                    li.onclick = () => addToSelectedItems(rec);
-                    recommendationList.appendChild(li);
-                });
-                document.getElementById("recommendations").style.display = "block";
+            if (element.classList.contains('open')) {
+                element.classList.remove('open');
             } else {
-                document.getElementById("recommendations").style.display = "none";
+                element.classList.add('open');
             }
         }
 
-        function addToSelectedItems(itemName) {
-            let infoElement = document.getElementById("info");
-            let title = itemName || document.getElementById("infoTitle").innerText;
-            let volume = parseFloat(document.getElementById("infoContent").innerText.match(/Volumen: ([\d.]+)/)[1].replace('.', ''));
+        function selectItem(element) {
+    if (element.classList.contains('open')) {
+        element.classList.remove('open');
+    } else {
+        element.classList.add('open');
+    }
+}
 
-            if (!selectedItems[title]) {
-                selectedItems[title] = volume;
-            } else {
-                selectedItems[title] += volume;
-            }
+function addToSelectedItems(button) {
+    let liElement = button.closest('li');
+    let title = liElement.innerText.split('\n')[0]; 
+    let volume = parseFloat(liElement.getAttribute('data-info').match(/Volumen: ([\d.]+)/)[1].replace('.', ''));
 
-            updateSelectedItemList();
-            infoElement.style.display = "none";
-            document.getElementById("recommendations").style.display = "none";
-            showNotification("¡Audiencia agregada al carrito!");
+    if (!selectedItems[title]) {
+        selectedItems[title] = volume;
+        liElement.classList.add('selected'); 
+    } else {
+        selectedItems[title] += volume;
+    }
+
+    updateSelectedItemList();
+    liElement.classList.remove('open');
+    showNotification("¡Audiencia agregada al carrito!");
+}
+
+function removeSelectedItem(itemName) {
+    let itemElements = document.querySelectorAll('#itemList li');
+    itemElements.forEach(item => {
+        if (item.innerText.split('\n')[0] === itemName) {
+            item.classList.remove('selected'); // Quitar clase selected
         }
+    });
 
-        function removeSelectedItem(itemName) {
-            delete selectedItems[itemName];
-            updateSelectedItemList();
-            showNotification("¡Audiencia eliminada del carrito!");
-        }
+    delete selectedItems[itemName];
+    updateSelectedItemList();
+    showNotification("¡Audiencia eliminada del carrito!");
+}
 
         function updateSelectedItemList() {
             let selectedItemList = document.getElementById("selectedItemList");
@@ -876,36 +1159,40 @@ li:hover {
         }
 
         function filterByCategoryAndSubcategory(searchInput = "") {
-    let categorySelect = document.getElementById("categorySelect").value;
-    let subcategorySelect = document.getElementById("subcategorySelect") ? document.getElementById("subcategorySelect").value : "all";
-    let items = document.getElementById("itemList").getElementsByTagName("li");
-    
-    // Mostrar u ocultar el submenu de geolocalización según la categoría seleccionada
-    if (categorySelect === "Geolocalizacion") {
-        document.getElementById("geolocalizacionSubmenu").style.display = "block";
-    } else {
-        document.getElementById("geolocalizacionSubmenu").style.display = "none";
-    }
+            let categorySelect = document.getElementById("categorySelect").value;
+            let subcategorySelect = document.getElementById("subcategorySelect").value;
 
-    for (let i = 0; i < items.length; i++) {
-        let item = items[i];
-        let itemCategory = item.getAttribute("data-category");
-        let itemSubcategory = item.getAttribute("data-subcategory");
-        let itemText = item.innerText.toLowerCase();
+            if (categorySelect === "Geolocalizacion") {
+                subcategorySelect = document.getElementById("geolocalizacionSubcategorySelect").value;
+                document.getElementById("geolocalizacionSubmenu").style.display = "block";
+                document.getElementById("demograficasSubmenu").style.display = "none";
+            } else if (categorySelect === "Demographic") {
+                subcategorySelect = document.getElementById("demograficasSubcategorySelect").value;
+                document.getElementById("geolocalizacionSubmenu").style.display = "none";
+                document.getElementById("demograficasSubmenu").style.display = "block";
+            } else {
+                document.getElementById("geolocalizacionSubmenu").style.display = "none";
+                document.getElementById("demograficasSubmenu").style.display = "none";
+            }
 
-        // Verificar coincidencias con la categoría y subcategoría
-        let categoryMatch = (categorySelect === "all" || itemCategory === categorySelect);
-        let subcategoryMatch = (subcategorySelect === "all" || itemSubcategory === subcategorySelect);
-        let textMatch = itemText.includes(searchInput.toLowerCase());
+            let items = document.getElementById("itemList").getElementsByTagName("li");
+            for (let i = 0; i < items.length; i++) {
+                let item = items[i];
+                let itemCategory = item.getAttribute("data-category");
+                let itemSubcategory = item.getAttribute("data-subcategory");
+                let itemText = item.innerText.toLowerCase();
 
-        if (categoryMatch && subcategoryMatch && textMatch) {
-            item.style.display = "block";
-        } else {
-            item.style.display = "none";
+                let categoryMatch = (categorySelect === "all" || itemCategory === categorySelect);
+                let subcategoryMatch = (subcategorySelect === "all" || itemSubcategory === subcategorySelect);
+                let textMatch = itemText.includes(searchInput.toLowerCase());
+
+                if (categoryMatch && subcategoryMatch && textMatch) {
+                    item.style.display = "block";
+                } else {
+                    item.style.display = "none";
+                }
+            }
         }
-    }
-}
-
 
         function clearSearch() {
             document.getElementById("searchInput").value = "";
@@ -933,7 +1220,6 @@ li:hover {
             }, 3000);
         }
     </script>
-    
 </body>
 </html>
 
